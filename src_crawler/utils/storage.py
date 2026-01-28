@@ -60,7 +60,7 @@ class StorageManager:
         sanitized = re.sub(r'[^\w\-.]', '_', sanitized)
         return sanitized
     
-    def save_raw(self, url: str, data: Dict[str, Any], metadata: Dict[str, Any] = None) -> str:
+    def save_raw(self, url: str, data: Dict[str, Any], metadata: Optional[Dict[str, Any]] = None) -> str:
         """
         Save raw crawl result with timestamp.
         
@@ -138,7 +138,10 @@ class StorageManager:
             return None
         
         with open(filepath, 'r', encoding='utf-8') as f:
-            return json.load(f)
+            data = json.load(f)
+            if isinstance(data, dict):
+                return data
+            return None
     
     def list_raw_files(self, slug: Optional[str] = None) -> List[str]:
         """

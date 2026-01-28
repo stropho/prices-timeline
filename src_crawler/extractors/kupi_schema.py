@@ -1,6 +1,56 @@
 """Extraction schema for kupi.cz product pages."""
-from crawl4ai.extraction_strategy import JsonCssExtractionStrategy
-from typing import Dict, Any
+from crawl4ai.extraction_strategy import JsonCssExtractionStrategy, LLMExtractionStrategy
+
+
+def get_kupi_schema_llm() -> LLMExtractionStrategy:
+    """
+    Returns LLM-based extraction for kupi.cz.
+    Note: Requires LLM_API_KEY in environment.
+    
+    The CSS selector filtering is handled by CrawlerRunConfig.css_selector parameter,
+    which filters HTML before it reaches the LLM, reducing token usage.
+    """
+    from crawl4ai import LLMConfig
+    import os
+    from datetime import datetime
+    today = datetime.now().strftime('%Y-%m-%d')
+    
+    instruction = f"""
+        Extract promotional offers for the product from this Czech deals page.
+        For reference, today's date is {today}. Use it to calculate exact dates.
+        One page containes 0 or more offers for a single product.
+        Return a JSON object only with following properties:
+        - product_name: string
+        - product_thumbnail_url: string (link to product image, if available)
+        - product_category: string (e.g., "Ovoce a zelenina", "Drogerie")
+        - offers: array of objects only with following properties:
+            - retailer_name: string (e.g., "Lidl", "Penny Market")
+            - retailer_logo: string (link to logo image, if available)
+            - price: string (e.g., "17,90 Kč / 1 kg")
+            - discount: string (e.g., "-55 %")
+            - validity: string (e.g., "platí do středy 17. 12.")
+            - validity_start_date: string (ISO format, if available)
+                - note: based on `validity` attribute, infer start date if possible
+            - validity_end_date: string (ISO format, if available)
+                - note: based on `validity` attribute, infer end date if possible
+                - note: "dnes končí" means "ends today"
+                - note: "zítra končí" means "ends tomorrow"
+        """
+
+    provider = os.getenv("LLM_PROVIDER")
+    api_token = os.getenv("LLM_API_KEY")
+    if not api_token:
+        raise RuntimeError("LLM_API_KEY environment variable is required for Gemini LLM extraction.")
+    llm_config = LLMConfig(
+        provider=provider,
+        api_token=api_token
+    )
+
+    return LLMExtractionStrategy(
+        llm_config=llm_config,
+        extraction_type="block",
+        instruction=instruction
+    )
 
 
 def get_kupi_schema() -> JsonCssExtractionStrategy:

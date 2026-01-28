@@ -4,7 +4,13 @@ import logging
 import os
 from typing import Dict, Any, List, Optional, Union
 from crawl4ai import AsyncWebCrawler, BrowserConfig, CrawlerRunConfig, CacheMode
-from extractors.kupi_schema import get_kupi_schema, get_simple_kupi_schema
+from extractors.kupi_schema import get_kupi_schema, get_simple_kupi_schema, get_kupi_schema_llm
+from enum import Enum
+
+class SchemaMode(Enum):
+    DETAILED = "detailed"
+    SIMPLE = "simple"
+    LLM = "llm"
 
 
 # Configure logging
@@ -36,31 +42,29 @@ class KupiCrawler:
         self.delay_seconds = delay_seconds
         self.timeout_ms = timeout_ms
         
-        # Browser configuration
+        # Browser configuration with headers
         self.browser_config = BrowserConfig(
             headless=self.headless,
             viewport_width=1280,
             viewport_height=720,
             browser_type="chromium",
-            verbose=False
+            verbose=False,
+            extra_args=["--lang=cs-CZ"]
         )
         
         # Default crawl configuration
         self.default_run_config = CrawlerRunConfig(
             cache_mode=CacheMode.BYPASS,  # Always get fresh data
             page_timeout=self.timeout_ms,
-            wait_until="networkidle",  # Wait for network to be idle
-            headers={
-                "Accept-Language": "cs-CZ,cs;q=0.9,en;q=0.8",
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
-            },
+            wait_until="domcontentloaded",  # Wait for DOM to load (faster than networkidle)
+            delay_before_return_html=2.0,  # Wait 2 seconds for JS to render
             verbose=False
         )
     
     async def crawl_url(
         self,
         url: str,
-        use_simple_schema: bool = False
+        schema_mode: "SchemaMode" = SchemaMode.DETAILED
     ) -> Dict[str, Any]:
         """
         Crawl a single URL and extract structured data.
@@ -80,20 +84,32 @@ class KupiCrawler:
         logger.info(f"Crawling URL: {url}")
         
         # Choose extraction schema
-        if use_simple_schema:
+        target_elements: Optional[List[str]] = None
+        if schema_mode == SchemaMode.LLM:
+            # Get target elements from environment (pipe-delimited list of CSS selectors)
+            css_selector_str = os.getenv("LLM_CSS_SELECTOR")
+            if css_selector_str:
+                target_elements = [selector.strip() for selector in css_selector_str.split("|") if selector.strip()]
+            extraction_strategy = get_kupi_schema_llm()
+            if target_elements:
+                logger.info(f"Using LLM extraction schema with target elements: {target_elements}")
+            else:
+                logger.info("Using LLM extraction schema without target element filtering")
+        elif schema_mode == SchemaMode.SIMPLE:
             extraction_strategy = get_simple_kupi_schema()
             logger.info("Using simple extraction schema")
         else:
             extraction_strategy = get_kupi_schema()
             logger.info("Using detailed extraction schema")
         
-        # Update run config with extraction strategy
+        # Update run config with extraction strategy and target elements
+        # The target_elements parameter filters HTML before processing, reducing LLM token usage
         run_config = CrawlerRunConfig(
             cache_mode=self.default_run_config.cache_mode,
             page_timeout=self.default_run_config.page_timeout,
             wait_until=self.default_run_config.wait_until,
-            headers=self.default_run_config.headers,
             extraction_strategy=extraction_strategy,
+            target_elements=target_elements,  # Filter HTML before LLM processing
             verbose=True
         )
         
@@ -142,7 +158,7 @@ class KupiCrawler:
     async def crawl_urls(
         self,
         urls: List[str],
-        use_simple_schema: bool = False,
+        schema_mode: "SchemaMode" = SchemaMode.DETAILED,
         delay_between: bool = True
     ) -> List[Dict[str, Any]]:
         """
@@ -160,10 +176,8 @@ class KupiCrawler:
         
         for i, url in enumerate(urls):
             logger.info(f"Processing URL {i+1}/{len(urls)}")
-            
-            result = await self.crawl_url(url, use_simple_schema)
+            result = await self.crawl_url(url, schema_mode=schema_mode)
             results.append(result)
-            
             # Polite crawling: delay between requests
             if delay_between and i < len(urls) - 1:
                 logger.info(f"Waiting {self.delay_seconds} seconds before next request...")
@@ -174,7 +188,7 @@ class KupiCrawler:
     async def crawl_urls_parallel(
         self,
         urls: List[str],
-        use_simple_schema: bool = False,
+        schema_mode: "SchemaMode" = SchemaMode.DETAILED,
         max_concurrent: int = 3
     ) -> List[Dict[str, Any]]:
         """
@@ -190,13 +204,13 @@ class KupiCrawler:
         """
         semaphore = asyncio.Semaphore(max_concurrent)
         
-        async def crawl_with_semaphore(url):
+        async def crawl_with_semaphore(url: str) -> Dict[str, Any]:
             async with semaphore:
-                return await self.crawl_url(url, use_simple_schema)
-        
+                return await self.crawl_url(url, schema_mode=schema_mode)
+
         tasks = [crawl_with_semaphore(url) for url in urls]
         results = await asyncio.gather(*tasks)
-        
+
         return list(results)
 
 
@@ -210,7 +224,7 @@ def load_urls_from_file(filepath: str) -> List[str]:
     Returns:
         List of URLs (comments and empty lines ignored)
     """
-    urls = []
+    urls: list[str] = []
     
     if not os.path.exists(filepath):
         logger.warning(f"URLs file not found: {filepath}")

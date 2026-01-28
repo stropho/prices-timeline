@@ -6,12 +6,19 @@ import sys
 import re
 from datetime import datetime
 from typing import Dict, Any, Optional
+from pathlib import Path
 from dotenv import load_dotenv
-from pydantic import ValidationError
-from crawlers.kupi_crawler import KupiCrawler, load_urls_from_file
+
+# Add src directory to Python path for imports
+src_dir = Path(__file__).parent
+if str(src_dir) not in sys.path:
+    sys.path.insert(0, str(src_dir))
+
+from crawlers.kupi_crawler import KupiCrawler, load_urls_from_file, SchemaMode
 from utils.storage import StorageManager
 from utils.date_parser import CzechDateParser
-from types import (
+from utils.text_parser import parse_kupi_offers_from_text
+from models import (
     Offer, RetailerInfo, PriceInfo, DiscountInfo, 
     ValidityInfo, StoreLocationsInfo, ProcessedData
 )
@@ -27,7 +34,7 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
         logging.StreamHandler(sys.stdout),
-        logging.FileHandler('crawler.log')
+        logging.FileHandler(Path(__file__).parent.parent / 'crawler.log')
     ]
 )
 logger = logging.getLogger(__name__)
@@ -52,7 +59,7 @@ class DataProcessor:
         if not price_text:
             return None
         
-        result = {
+        result: Dict[str, Any] = {
             "text": price_text,
             "value": None,
             "currency": None,
@@ -66,7 +73,7 @@ class DataProcessor:
             try:
                 result["value"] = float(value_str)
             except ValueError:
-                pass
+                result["value"] = None
         
         # Extract currency
         if 'Kč' in price_text or 'CZK' in price_text:
@@ -92,7 +99,7 @@ class DataProcessor:
         if not discount_text:
             return None
         
-        result = {
+        result: Dict[str, Any] = {
             "text": discount_text,
             "percentage": None
         }
@@ -101,6 +108,8 @@ class DataProcessor:
         match = re.search(r'(\d+)\s*%', discount_text)
         if match:
             result["percentage"] = int(match.group(1))
+        else:
+            result["percentage"] = None
         
         return result
     
@@ -161,14 +170,35 @@ class DataProcessor:
         Returns:
             Processed data structure
         """
-        if not crawl_result.get("success") or not crawl_result.get("extracted_data"):
+        if not crawl_result.get("success"):
             return None
         
-        extracted = crawl_result["extracted_data"]
-        
-        # Handle list format from JsonCssExtractionStrategy
-        if isinstance(extracted, list) and len(extracted) > 0:
-            extracted = extracted[0]
+        # Try to parse from raw text if CSS extraction failed
+        extracted = crawl_result.get("extracted_data")
+        if extracted:
+            # Handle list format from JsonCssExtractionStrategy
+            if isinstance(extracted, list) and len(extracted) > 0:
+                extracted = extracted[0]
+            
+            # Check if we got meaningful offer data
+            offers = extracted.get("offers", [])
+            if not offers or len(offers) == 0:
+                # Fallback to text parsing
+                logger.info("CSS extraction found no offers, trying text parser...")
+                raw_text = extracted.get("regular_price_text", "")
+                if raw_text:
+                    parsed = parse_kupi_offers_from_text(raw_text)
+                    if parsed.get("offers"):
+                        logger.info(f"Text parser found {len(parsed['offers'])} offers")
+                        # Create fake extracted structure from parsed text
+                        extracted = {
+                            "product_name": parsed.get("product_name", extracted.get("product_name")),
+                            "category": extracted.get("category", []),
+                            "regular_price_text": extracted.get("regular_price_text"),
+                            "offers": parsed.get("offers", [])
+                        }
+        else:
+            return None
         
         processed = {
             "product": {
@@ -190,22 +220,21 @@ class DataProcessor:
                 processed_offer = self.process_offer(offer)
                 # Only include offers with at least a retailer name or price
                 if processed_offer["retailer"]["name"] or processed_offer["pricing"]:
-                    processed["offers"].append(processed_offer)
+                    if isinstance(processed["offers"], list):
+                        processed["offers"].append(processed_offer)
         
         return processed
 
 
 async def main() -> None:
-    """Main execution function."""
-    logger.info("=" * 60)
-    logger.info("Starting Prices Timeline Crawler")
-    logger.info("=" * 60)
-    
+    # ...existing code for crawl, results, combined_data...
+
+
     # Initialize components
     crawler_delay = int(os.getenv('CRAWLER_DELAY_SECONDS', '2'))
     crawler_timeout = int(os.getenv('CRAWLER_TIMEOUT_MS', '60000'))
     crawler_headless = os.getenv('CRAWLER_HEADLESS', 'true').lower() == 'true'
-    
+
     crawler = KupiCrawler(
         headless=crawler_headless,
         delay_seconds=crawler_delay,
@@ -213,73 +242,56 @@ async def main() -> None:
     )
     storage = StorageManager()
     processor = DataProcessor()
-    
+
     # Load URLs
-    urls_file = 'config/urls.txt'
-    urls = load_urls_from_file(urls_file)
-    
+    # Get the directory where this script is located
+    script_dir = Path(__file__).parent
+    urls_file = script_dir / 'config' / 'urls.txt'
+    urls = load_urls_from_file(str(urls_file))
+
     if not urls:
         logger.error(f"No URLs found in {urls_file}. Please add URLs to crawl.")
         return
-    
+
     logger.info(f"Found {len(urls)} URLs to crawl")
-    
+
     # Crawl URLs
     logger.info("Starting crawl...")
-    results = await crawler.crawl_urls(urls, use_simple_schema=False, delay_between=True)
-    
-    # Process and save results
-    logger.info("Processing and saving results...")
-    success_count = 0
-    error_count = 0
-    
-    for result in results:
-        url = result["url"]
-        
-        if result["success"]:
-            # Save raw data
-            raw_path = storage.save_raw(
-                url=url,
-                data=result["extracted_data"],
-                metadata={
-                    "success": True,
-                    "has_markdown": result["raw_markdown"] is not None
-                }
-            )
-            logger.info(f"✓ Saved raw data: {raw_path}")
-            
-            # Process and save
-            processed_data = processor.process_crawl_result(result)
-            if processed_data:
-                processed_path = storage.save_processed(url=url, data=processed_data)
-                logger.info(f"✓ Saved processed data: {processed_path}")
-                
-                # Log summary
-                offer_count = len(processed_data.get("offers", []))
-                product_name = processed_data.get("product", {}).get("name", "Unknown")
-                logger.info(f"  → Product: {product_name}, Offers: {offer_count}")
-            else:
-                logger.warning(f"⚠ Could not process data for {url}")
-            
-            success_count += 1
-        else:
-            error_msg = result.get("error", "Unknown error")
-            logger.error(f"✗ Failed to crawl {url}: {error_msg}")
-            
-            # Save error information
-            storage.save_raw(
-                url=url,
-                data={"error": error_msg},
-                metadata={"success": False}
-            )
-            error_count += 1
-    
-    # Summary
+    results = await crawler.crawl_urls(urls, schema_mode=SchemaMode.LLM, delay_between=True)
+
+    # Write markdown files and build combined_data in a single loop
+    markdown_dir = storage.raw_dir / "markdown"
+    markdown_dir.mkdir(parents=True, exist_ok=True)
+    combined_data = []
+    for i, result in enumerate(results):
+        url = result.get("url", "")
+        slug = storage._extract_slug_from_url(url) if url else f"entry_{i+1}"
+        filename = f"{slug}.md"
+        md_path = markdown_dir / filename
+        markdown_content = result.get("raw_markdown") or ""
+        with open(md_path, "w", encoding="utf-8") as f:
+            f.write(markdown_content)
+        entry = {
+            "slug": slug,
+            "url": url,
+            "markdown": markdown_content,
+            "extracted_data": result.get("extracted_data")
+        }
+        combined_data.append(entry)
+    logger.info(f"✓ Saved markdown files to: {markdown_dir}")
+    # Write combined_data.json
+    combined_path = storage.raw_dir / "combined_data.json"
+    import json
+    with open(combined_path, "w", encoding="utf-8") as f:
+        json.dump(combined_data, f, indent=2, ensure_ascii=False)
+    logger.info(f"✓ Aggregated {len(combined_data)} entries into: {combined_path}")
     logger.info("=" * 60)
-    logger.info(f"Crawl completed!")
-    logger.info(f"Success: {success_count}/{len(urls)}")
-    logger.info(f"Errors: {error_count}/{len(urls)}")
+    logger.info("Crawl completed! Markdown files saved and combined_data.json created.")
+    logger.info(f"Success: {sum(1 for r in results if r.get('success'))}/{len(urls)}")
+    logger.info(f"Errors: {sum(1 for r in results if not r.get('success'))}/{len(urls)}")
     logger.info("=" * 60)
+    
+    # ...existing code for initialization, crawling, and processing...
 
 
 if __name__ == "__main__":

@@ -13,25 +13,17 @@ A web crawler built with crawl4ai to extract promotional product deals from kupi
 
 ## Setup
 
+### Setup (Recommended)
+
 1. **Install dependencies:**
    ```bash
-   pip install -r requirements.txt
+   uv sync
    ```
 
-2. **Run crawl4ai setup (required for Playwright/browser):**
-   ```bash
-   crawl4ai-setup
-   ```
+2. **Configure URLs:**
+   Edit `src_crawler/config/urls.txt` and add target URLs (one per line)
 
-3. **Verify installation:**
-   ```bash
-   crawl4ai-doctor
-   ```
-
-4. **Configure URLs:**
-   Edit `config/urls.txt` and add target URLs (one per line)
-
-5. **Optional: Create .env file:**
+3. **Optional: Create .env file:**
    ```bash
    cp .env.example .env
    ```
@@ -42,36 +34,35 @@ This project uses comprehensive type hints (similar to TypeScript) for better co
 
 **Run type checking:**
 ```bash
-mypy .
+cd src_crawler && uv run mypy .
 ```
-
-All modules are fully typed with:
-- Function parameter and return type annotations
-- Optional types for nullable values
-- Generic types (Dict, List, etc.)
-- Strict mypy configuration
 
 ## Usage
 
-Run the crawler:
+**Run the crawler:**
 ```bash
-python main.py
+cd src_crawler && uv run main.py
 ```
 
 ## Project Structure
 
 ```
 prices-timeline/
-├── crawlers/           # Crawler implementations
-├── extractors/         # Extraction schemas
-├── config/             # Configuration files
-│   └── urls.txt       # Target URLs to crawl
+├── src_crawler/        # Python crawler project
+│   ├── crawlers/       # Crawler implementations
+│   ├── extractors/     # Extraction schemas
+│   ├── config/         # Configuration files
+│   │   └── urls.txt   # Target URLs to crawl
+│   ├── utils/         # Helper utilities
+│   ├── main.py        # Entry point
+│   ├── models.py      # Data models
+│   ├── pyproject.toml # Project configuration
+│   └── requirements.txt # Python dependencies
+├── src_web/           # Web application (npm project)
 ├── data/
 │   ├── raw/           # Raw crawl results
 │   └── processed/     # Processed JSON files
-├── utils/             # Helper utilities
-├── main.py            # Entry point
-└── requirements.txt   # Python dependencies
+└── README.md          # This file
 ```
 
 ## Output

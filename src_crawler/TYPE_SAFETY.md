@@ -13,26 +13,18 @@ All modules are fully typed with:
 
 ## Type Checking Tools
 
+
 ### MyPy
 Static type checker that validates types at development time.
 
 ```bash
 # Check all files
-mypy .
-
-# Check specific file
-mypy main.py
-
-# Use the provided script
-./check_types.sh
+uv run mypy .
 ```
 
+
 ### Configuration
-See `mypy.ini` for strict type checking configuration:
-- `disallow_untyped_defs`: All functions must have type hints
-- `no_implicit_optional`: Explicit Optional[] required
-- `warn_return_any`: Warns on untyped returns
-- `strict_equality`: Type-safe equality checks
+See `mypy.ini` for strict type checking configuration.
 
 ## Pydantic Models
 
@@ -42,52 +34,10 @@ Located in `types.py`, these models provide:
 3. **Documentation**: Self-documenting data structures
 4. **Serialization**: Easy JSON conversion
 
-### Example Usage
 
-```python
-from types import Offer, RetailerInfo, PriceInfo
-
-# Create typed offer
-offer = Offer(
-    retailer=RetailerInfo(name="Lidl", url="https://..."),
-    pricing=PriceInfo(text="17,90 Kč", value=17.90, currency="CZK"),
-    validity=ValidityInfo(start_date="2025-12-18", end_date="2025-12-19")
-)
-
-# ValidationError raised if data is invalid
-# IDE provides auto-completion for all fields
-```
 
 ## Module Type Coverage
 
-### ✅ `utils/date_parser.py`
-- All methods fully typed
-- Optional returns explicit
-- Dict types specified with keys
-
-### ✅ `utils/storage.py`
-- Path operations typed
-- Optional returns for missing data
-- List return types explicit
-
-### ✅ `extractors/kupi_schema.py`
-- Schema functions return JsonCssExtractionStrategy
-- Type imports added
-
-### ✅ `crawlers/kupi_crawler.py`
-- Async functions properly typed
-- Config objects typed
-- Result dictionaries typed
-
-### ✅ `main.py`
-- DataProcessor methods fully typed
-- Pydantic models integration ready
-- Optional returns explicit
-
-### ✅ `types.py`
-- Complete Pydantic model definitions
-- All data structures typed
-- Runtime validation enabled
 
 ## Benefits
 
@@ -138,28 +88,7 @@ price: Optional[float] = None
 response: Union[str, Dict[str, Any]] = get_response()
 ```
 
-## IDE Integration
 
-### VS Code
-Install Python extension and enable type checking:
-```json
-{
-  "python.linting.mypyEnabled": true,
-  "python.linting.enabled": true
-}
-```
-
-### PyCharm
-Type checking is built-in and automatically enabled.
-
-## Best Practices
-
-1. **Always annotate function parameters and returns**
-2. **Use `Optional[T]` for nullable values** (never use `T | None` style)
-3. **Prefer specific types over `Any`** when possible
-4. **Use Pydantic models for complex data structures**
-5. **Run mypy regularly** during development
-6. **Fix type errors immediately** - they indicate real issues
 
 ## Common Patterns
 
