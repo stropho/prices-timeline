@@ -24,6 +24,7 @@ function injectCssLinkInDev({linkHref}: {linkHref: string }): Plugin {
   };
 }
 export default defineConfig({
+  base: './',
   plugins: [
     react({
       babel: {
