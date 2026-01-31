@@ -1,22 +1,29 @@
-# Prices Timeline Crawler
+# Prices Timeline
 
-A web crawler built with crawl4ai to extract promotional product deals from kupi.cz and save structured data to JSON files.
+A full-stack application for tracking and visualizing promotional product deals. Consists of a Python web crawler that extracts deal data and a React-based front-end application that displays price timelines.
 
 ## Features
 
-- Crawls specific product pages from kupi.cz (Czech deals aggregator)
+### Crawler
+- Crawls specific product pages
 - Extracts promotional offers with pricing, retailers, validity dates
 - Handles JavaScript-rendered content using Playwright
-- Parses Czech date formats
 - Saves raw and processed data to JSON files
 - Always fetches fresh data (no caching)
 
+### Web Application
+- Interactive price timeline visualization
+- Dark mode support
+- Responsive design
+- Built with React, TypeScript, and Tailwind CSS
+
 ## Setup
 
-### Setup (Recommended)
+### Crawler Setup
 
 1. **Install dependencies:**
    ```bash
+   cd src_crawler
    uv sync
    ```
 
@@ -26,6 +33,29 @@ A web crawler built with crawl4ai to extract promotional product deals from kupi
 3. **Optional: Create .env file:**
    ```bash
    cp .env.example .env
+   ```
+
+### Web Application Setup
+
+1. **Install dependencies:**
+   ```bash
+   cd src_web
+   npm install
+   ```
+
+2. **Run development server:**
+   ```bash
+   npm run dev
+   ```
+
+3. **Build for production:**
+   ```bash
+   npm run build
+   ```
+
+4. **Preview production build:**
+   ```bash
+   npm run preview
    ```
 
 ## Type Checking
@@ -39,10 +69,37 @@ cd src_crawler && uv run mypy .
 
 ## Usage
 
+### Running the Crawler
+
 **Run the crawler:**
 ```bash
 cd src_crawler && uv run main.py
 ```
+
+### Running the Web Application
+
+**Development mode:**
+```bash
+cd src_web && npm run dev
+```
+
+The application will be available at `http://localhost:5173` (or the port shown in the terminal).
+
+**Production build:**
+```bash
+cd src_web && npm run build
+```
+
+The built files will be in `src_web/dist/`.
+
+## Deployment
+
+The web application is automatically deployed to GitHub Pages when:
+- Changes are pushed to the `main` branch
+- Files in `src_web/` are modified
+
+The deployment workflow is defined in `.github/workflows/deploy-pages.yaml`.
+
 
 ## Project Structure
 
@@ -58,7 +115,18 @@ prices-timeline/
 │   ├── models.py      # Data models
 │   ├── pyproject.toml # Project configuration
 │   └── requirements.txt # Python dependencies
-├── src_web/           # Web application (npm project)
+├── src_web/           # React web application
+│   ├── src/           # Source code
+│   │   ├── components/ # React components
+│   │   ├── hooks/      # Custom React hooks
+│   │   └── ...
+│   ├── public/        # Static assets
+│   │   └── combined_data.json # Product data
+│   ├── package.json   # Node.js dependencies
+│   └── vite.config.ts # Vite configuration
+├── .github/
+│   └── workflows/     # GitHub Actions workflows
+│       └── deploy-pages.yaml # GitHub Pages deployment
 ├── data/
 │   ├── raw/           # Raw crawl results
 │   └── processed/     # Processed JSON files
@@ -82,9 +150,3 @@ Extracted data includes:
   - Flyer and store location URLs
   - Store count
 
-## Notes
-
-- The crawler uses a 2-second delay between requests for polite crawling
-- JavaScript rendering is enabled to capture dynamic content
-- Czech locale headers are set for proper content
-- All dates are converted to ISO format (YYYY-MM-DD)
