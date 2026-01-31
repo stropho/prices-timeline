@@ -18,7 +18,7 @@ def get_kupi_schema_llm() -> LLMExtractionStrategy:
     instruction = f"""
         Extract promotional offers for the product from this Czech deals page.
         For reference, today's date is {today}. Use it to calculate exact dates.
-        One page containes 0 or more offers for a single product.
+        One page contains 0 or more offers for a single product.
         Return a JSON object only with following properties:
         - product_name: string
         - product_thumbnail_url: string (link to product image, if available)
