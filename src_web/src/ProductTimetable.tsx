@@ -135,11 +135,11 @@ export function ProductTimetable({ product }: { product: Product }) {
   const productThumbnailUrl = product.extracted_data[0]?.product_thumbnail_url
   const productBackgroundStyle = useProductBackground(productThumbnailUrl)
 
-  // Grid template: 1 column for retailer (140px) + N columns for dates (60px each)
-  const gridTemplateColumns = `140px repeat(${dates.length}, 60px)`
+  // Grid template: 1 column for retailer (120px) + N columns for dates (50px each)
+  const gridTemplateColumns = `120px repeat(${dates.length}, 43px)`
 
   return (
-    <div className="bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-xl p-6 transition-transform hover:translate-y-[-4px] hover:shadow-lg">
+    <div className="bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-xl p-1 transition-transform hover:translate-y-[-4px] hover:shadow-lg">
       {allOffers.length === 0 ? (
         <div className="text-gray-600 dark:text-gray-400">No offers available</div>
       ) : (
