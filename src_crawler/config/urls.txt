@@ -1,5 +1,5 @@
 # Add target URLs to crawl (one per line)
-#https://www.kupi.cz/sleva/losos-obecny-filety
 # Example:
-https://www.kupi.cz/sleva/losos-filety
 https://www.kupi.cz/sleva/banany
+https://www.kupi.cz/sleva/losos-filety
+https://www.kupi.cz/sleva/losos-obecny-filety
