@@ -1,52 +1,11 @@
-import { useState, useEffect } from 'react'
 import { ProductTimetable } from './ProductTimetable'
 import { ThemeToggle } from './components/ThemeToggle'
 import type { Product } from './types'
+import productsData from './combined_data.json'
+
+const products = productsData as Product[]
 
 function App() {
-  const [products, setProducts] = useState<Product[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-
-  useEffect(() => {
-    fetch('/combined_data.json')
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error('Failed to load data')
-        }
-        return res.json()
-      })
-      .then((data: Product[]) => {
-        setProducts(data)
-        setLoading(false)
-      })
-      .catch((err) => {
-        setError(err.message)
-        setLoading(false)
-      })
-  }, [])
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors">
-        <div className="max-w-[1400px] mx-auto p-8">
-          <div className="text-center py-8 text-xl">Loading products...</div>
-        </div>
-      </div>
-    )
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors">
-        <div className="max-w-[1400px] mx-auto p-8">
-          <div className="text-center py-8 text-xl text-red-500 dark:text-red-400">
-            Error: {error}
-          </div>
-        </div>
-      </div>
-    )
-  }
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors">
