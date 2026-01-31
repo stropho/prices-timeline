@@ -28,7 +28,7 @@ echo "Copying combined_data.json to web app..."
 echo "=========================================="
 
 # Copy combined_data.json to web app public folder
-WEB_PUBLIC="$PROJECT_ROOT/src_web/public/combined_data.json"
+WEB_PUBLIC="$PROJECT_ROOT/src_web/src/combined_data.json"
 cp "$CRAWLER_OUTPUT" "$WEB_PUBLIC"
 echo "✓ Copied combined_data.json to $WEB_PUBLIC"
 
@@ -42,15 +42,14 @@ echo "✓ Removed crawled data"
 
 echo ""
 echo "=========================================="
-echo "Building web app..."
+echo "Review Changes and press any key to continue to push"
 echo "=========================================="
 
-# Build the web app
-# cd "$PROJECT_ROOT/src_web"
-# npm run build
+read -n 1 -s -r -p ""
 
-# echo ""
-# echo "=========================================="
-# echo "✓ Build complete!"
-# echo "=========================================="
+cd "$PROJECT_ROOT"
+git add .
+git commit -m "chore: Update crawled data"
+git push
+
 
