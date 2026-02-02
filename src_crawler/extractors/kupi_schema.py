@@ -16,9 +16,21 @@ def get_kupi_schema_llm() -> LLMExtractionStrategy:
     today = datetime.now().strftime('%Y-%m-%d')
     
     instruction = f"""
+        ## Goal
         Extract promotional offers for the product from this Czech deals page.
-        For reference, today's date is {today}. Use it to calculate exact dates.
-        One page contains 0 or more offers for a single product.
+
+        ## Hints for Extracting Data
+        - One page contains 0 or more offers for a single product.
+        - Each offer is a an item in the "offers" array - defined in JSON output section.
+        - The product may be offered by multiple retailers (e.g., Lidl, Penny Market).
+        - For reference, today's date is {today}. Use it to calculate exact dates.
+        - `validity` field may contain exact range or relative terms, for example:
+          - "dnes končí" (ends today)
+          - "zítra končí" (ends tomorrow)
+          - "platí do středy 17. 12." (valid until Wednesday 17.12.)
+          - "13.12. - 17.12." (regular date range)
+
+        ## JSON output
         Return a JSON object only with following properties:
         - product_name: string
         - product_thumbnail_url: string (link to product image, if available)
@@ -33,8 +45,6 @@ def get_kupi_schema_llm() -> LLMExtractionStrategy:
                 - note: based on `validity` attribute, infer start date if possible
             - validity_end_date: string (ISO format, if available)
                 - note: based on `validity` attribute, infer end date if possible
-                - note: "dnes končí" means "ends today"
-                - note: "zítra končí" means "ends tomorrow"
         """
 
     provider = os.getenv("LLM_PROVIDER")
@@ -48,7 +58,7 @@ def get_kupi_schema_llm() -> LLMExtractionStrategy:
 
     return LLMExtractionStrategy(
         llm_config=llm_config,
-        extraction_type="block",
+        extraction_type="schema",
         instruction=instruction
     )
 
