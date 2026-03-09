@@ -2,13 +2,32 @@
   {
     "slug": "banany",
     "url": "https://www.kupi.cz/sleva/banany",
-    "markdown": "[Slevy](https://www.kupi.cz/slevy \"Slevy\") [Ovoce a zelenina](https://www.kupi.cz/slevy/ovoce-a-zelenina \"Ovoce a zelenina\") [Banány a exotické ovoce](https://www.kupi.cz/slevy/banany-a-exoticke-ovoce \"Banány a exotické ovoce\")\nBanány\n![Banány](https://img.kupi.cz/kupi/thumbs/banany_170_340.jpg) ilustrační obrázek\n#  Banány \nv lokalitě [Praha](https://www.kupi.cz/sleva/banany \"Hlavní město, Česko\")\nPřidat produkt do oblíbených Zapněte si oblíbené a upozorníme vás na novou akci \nBěžná cena: 0 Kč\nAktuálně není ve slevě  \n[Přejít do sekce Banány a exotické ovoce](https://www.kupi.cz/slevy/banany-a-exoticke-ovoce)\n",
+    "markdown": "[Slevy](https://www.kupi.cz/slevy \"Slevy\") [Ovoce a zelenina](https://www.kupi.cz/slevy/ovoce-a-zelenina \"Ovoce a zelenina\") [Banány a exotické ovoce](https://www.kupi.cz/slevy/banany-a-exoticke-ovoce \"Banány a exotické ovoce\")\nBanány\n![Banány](https://img.kupi.cz/kupi/thumbs/banany_170_340.jpg) ilustrační obrázek\n#  Banány \nv lokalitě [Praha](https://www.kupi.cz/sleva/banany \"Hlavní město, Česko\")\nPřidat produkt do oblíbených Zapněte si oblíbené a upozorníme vás na novou akci \nBěžná cena: 0 Kč\n## Aktuální akční slevy Banány 1 kg\n## Doporučené akce\n[ ![Tesco leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/tesco-logo_80.png) ](https://www.kupi.cz/letaky/tesco \"Tesco leták\")\n[ Tesco  ](https://www.kupi.cz/letaky/tesco \"Tesco\")\n[29 nejbližších poboček](https://www.kupi.cz/obchod/tesco/tesco-praha-1 \"Tesco\")\ncena **24,90 Kč**\n/ 1 kg\n–37 %\n24,90 Kč / 1 kg \nzítra končí \n[ V letáku](https://www.kupi.cz/letak/tesco-supermarket-letak-384?map=199807887 \"Prohlédnout leták Tesco s akcí Banány\") [ Přidat](https://www.kupi.cz/sleva/banany#9611697 \"Přidat Banány do nákupního seznamu\")\nod **24,90 Kč**\n## Akce dle ceny\n[ ![Tesco leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/tesco-logo_80.png) ](https://www.kupi.cz/letaky/tesco \"Tesco leták\")\n[ Tesco  ](https://www.kupi.cz/letaky/tesco \"Tesco\")\n[29 nejbližších poboček](https://www.kupi.cz/obchod/tesco/tesco-praha-1 \"Tesco\")\ncena **24,90 Kč**\n/ 1 kg\n–37 %\n24,90 Kč / 1 kg \nzítra končí \n[ V letáku](https://www.kupi.cz/letak/tesco-supermarket-letak-384?map=199807887 \"Prohlédnout leták Tesco s akcí Banány\") [ Přidat](https://www.kupi.cz/sleva/banany#9611697 \"Přidat Banány do nákupního seznamu\")\n[ ![Penny Market leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/fWtbzkLpepWCEvjs5f6h58dcAERy6naC_80.jpg) ](https://www.kupi.cz/letaky/penny-market \"Penny Market leták\")\n[ Penny Market  ](https://www.kupi.cz/letaky/penny-market \"Penny Market\")\n[79 nejbližších poboček](https://www.kupi.cz/obchod/penny-market/penny-market-praha-hradecka \"Penny Market\")\ncena **26,90 Kč**\n/ 1 kg\n–32 %\n26,90 Kč / 1 kg \nst 11. 3. – ne 15. 3. \n[ V letáku](https://www.kupi.cz/letak/penny-market-letak-514?page=2&map=200122446 \"Prohlédnout leták Penny Market s akcí Banány\") [ Přidat](https://www.kupi.cz/sleva/banany#9684525 \"Přidat Banány do nákupního seznamu\")\nod **24,90 Kč**\n",
     "extracted_data": [
       {
         "product_name": "Banány",
         "product_thumbnail_url": "https://img.kupi.cz/kupi/thumbs/banany_170_340.jpg",
         "product_category": "Ovoce a zelenina",
-        "offers": [],
+        "offers": [
+          {
+            "retailer_name": "Tesco",
+            "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/tesco-logo_80.png",
+            "price": "24,90 Kč / 1 kg",
+            "discount": "-37 %",
+            "validity": "zítra končí",
+            "validity_start_date": "2026-03-09",
+            "validity_end_date": "2026-03-10"
+          },
+          {
+            "retailer_name": "Penny Market",
+            "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/fWtbzkLpepWCEvjs5f6h58dcAERy6naC_80.jpg",
+            "price": "26,90 Kč / 1 kg",
+            "discount": "-32 %",
+            "validity": "st 11. 3. – ne 15. 3.",
+            "validity_start_date": "2026-03-11",
+            "validity_end_date": "2026-03-15"
+          }
+        ],
         "error": false
       }
     ]
@@ -21,7 +40,7 @@
       {
         "product_name": "Mrkev",
         "product_thumbnail_url": "https://img.kupi.cz/kupi/thumbs/mrkev-2_170_340.jpg",
-        "product_category": "Mrkev a kořenová zelenina",
+        "product_category": "Ovoce a zelenina",
         "offers": [],
         "error": false
       }
@@ -30,7 +49,7 @@
   {
     "slug": "losos-filety",
     "url": "https://www.kupi.cz/sleva/losos-filety",
-    "markdown": "[Slevy](https://www.kupi.cz/slevy \"Slevy\") [Maso, uzeniny a ryby](https://www.kupi.cz/slevy/maso-drubez-a-ryby \"Maso, uzeniny a ryby\") [Ryby a mořské plody](https://www.kupi.cz/slevy/ryby-a-morske-plody \"Ryby a mořské plody\")\nLosos filety\n![Losos filety](https://img.kupi.cz/kupi/thumbs/losos-filety_170_340.png) ilustrační obrázek\n#  Losos filety \nv lokalitě [Praha](https://www.kupi.cz/sleva/losos-filety \"Hlavní město, Česko\")\nPřidat produkt do oblíbených Zapněte si oblíbené a upozorníme vás na novou akci \n[Vše](https://www.kupi.cz/sleva/losos-filety) [100 g](https://www.kupi.cz/sleva/losos-filety) [1000 g](https://www.kupi.cz/sleva/losos-filety)\nBěžná cena: 0 Kč\n## Aktuální akční slevy Losos filety 100 g\n## Doporučené akce\n[ ![BILLA leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/MAwEX34sXN6bHQ3FWQSbsxxp1xk4rXbw_80.jpg) ](https://www.kupi.cz/letaky/billa \"BILLA leták\")\n[ BILLA  ](https://www.kupi.cz/letaky/billa \"BILLA\")\n[86 nejbližších poboček](https://www.kupi.cz/obchod/billa/billa-praha-2-vinohrady-wilsonova \"BILLA\")\ncena **28,90 Kč**\n/ 100 g\n–47 %\n28,90 Kč / 100 g \nplatí do úterý 3. 3. \n[ V letáku](https://www.kupi.cz/letak/billa-velky-letak-260?map=199580856 \"Prohlédnout leták BILLA s akcí Losos filety\") [ Přidat](https://www.kupi.cz/sleva/losos-filety#9606171 \"Přidat Losos filety do nákupního seznamu\")\nod **28,90 Kč**\n## Akce dle ceny\n[ ![BILLA leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/MAwEX34sXN6bHQ3FWQSbsxxp1xk4rXbw_80.jpg) ](https://www.kupi.cz/letaky/billa \"BILLA leták\")\n[ BILLA  ](https://www.kupi.cz/letaky/billa \"BILLA\")\n[86 nejbližších poboček](https://www.kupi.cz/obchod/billa/billa-praha-2-vinohrady-wilsonova \"BILLA\")\ncena **28,90 Kč**\n/ 100 g\n–47 %\n28,90 Kč / 100 g \nplatí do úterý 3. 3. \n[ V letáku](https://www.kupi.cz/letak/billa-velky-letak-260?map=199580856 \"Prohlédnout leták BILLA s akcí Losos filety\") [ Přidat](https://www.kupi.cz/sleva/losos-filety#9606171 \"Přidat Losos filety do nákupního seznamu\")\n[ ![Lidl leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/AfTKyWvbe1tUUzcJvADDx4jLB4sqVLnz_80.jpg) ](https://www.kupi.cz/letaky/lidl \"Lidl leták\")\n[ Lidl  ](https://www.kupi.cz/letaky/lidl \"Lidl\")\n[77 nejbližších poboček](https://www.kupi.cz/obchod/lidl/lidl-praha-vinohrady-italska \"Lidl\")\ncena **399,00 Kč**\n/ 1000 g\n39,90 Kč / 100 g \nplatí do neděle 1. 3. \n[ V letáku](https://www.kupi.cz/letak/lidl-letak-od-ctvrtka-119?page=10&map=199314039 \"Prohlédnout leták Lidl s akcí Losos filety\") [ Přidat](https://www.kupi.cz/sleva/losos-filety#9589089 \"Přidat Losos filety do nákupního seznamu\")\ns kůží, balepo po 8 x 125 g\nod **28,90 Kč**\n",
+    "markdown": "[Slevy](https://www.kupi.cz/slevy \"Slevy\") [Maso, uzeniny a ryby](https://www.kupi.cz/slevy/maso-drubez-a-ryby \"Maso, uzeniny a ryby\") [Ryby a mořské plody](https://www.kupi.cz/slevy/ryby-a-morske-plody \"Ryby a mořské plody\")\nLosos filety\n![Losos filety](https://img.kupi.cz/kupi/thumbs/losos-filety_170_340.png) ilustrační obrázek\n#  Losos filety \nv lokalitě [Praha](https://www.kupi.cz/sleva/losos-filety \"Hlavní město, Česko\")\nPřidat produkt do oblíbených Zapněte si oblíbené a upozorníme vás na novou akci \nBěžná cena: 0 Kč\n## Aktuální akční slevy Losos filety 100 g\n## Akce dle ceny\n[ ![Penny Market leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/fWtbzkLpepWCEvjs5f6h58dcAERy6naC_80.jpg) ](https://www.kupi.cz/letaky/penny-market \"Penny Market leták\")\n[ Penny Market  ](https://www.kupi.cz/letaky/penny-market \"Penny Market\")\n[79 nejbližších poboček](https://www.kupi.cz/obchod/penny-market/penny-market-praha-hradecka \"Penny Market\")\ncena **29,90 Kč**\n/ 100 g\n29,90 Kč / 100 g \nst 11. 3. – út 17. 3. \n[ V letáku](https://www.kupi.cz/letak/penny-market-letak-514?map=200122377 \"Prohlédnout leták Penny Market s akcí Losos filety\") [ Přidat](https://www.kupi.cz/sleva/losos-filety#9684432 \"Přidat Losos filety do nákupního seznamu\")\ns kůží\n[ ![Lidl leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/AfTKyWvbe1tUUzcJvADDx4jLB4sqVLnz_80.jpg) ](https://www.kupi.cz/letaky/lidl \"Lidl leták\")\n[ Lidl  ](https://www.kupi.cz/letaky/lidl \"Lidl\")\n[77 nejbližších poboček](https://www.kupi.cz/obchod/lidl/lidl-praha-vinohrady-italska \"Lidl\")\ncena **29,90 Kč**\n/ 100 g\n29,90 Kč / 100 g \nčt 12. 3. – ne 15. 3. \n[ V letáku](https://www.kupi.cz/letak/lidl-letak-od-ctvrtka-znackove-slevy?map=200113077 \"Prohlédnout leták Lidl s akcí Losos filety\") [ Přidat](https://www.kupi.cz/sleva/losos-filety#9675834 \"Přidat Losos filety do nákupního seznamu\")\ns kůží, baleno, max 5 balení/osoba/den\nod **29,90 Kč**\n",
     "extracted_data": [
       {
         "product_name": "Losos filety",
@@ -38,22 +57,22 @@
         "product_category": "Ryby a mořské plody",
         "offers": [
           {
-            "retailer_name": "BILLA",
-            "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/MAwEX34sXN6bHQ3FWQSbsxxp1xk4rXbw_80.jpg",
-            "price": "28,90 Kč / 100 g",
-            "discount": "-47 %",
-            "validity": "platí do úterý 3. 3.",
-            "validity_start_date": "2026-02-26",
-            "validity_end_date": "2026-03-03"
+            "retailer_name": "Penny Market",
+            "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/fWtbzkLpepWCEvjs5f6h58dcAERy6naC_80.jpg",
+            "price": "29,90 Kč / 100 g",
+            "discount": null,
+            "validity": "st 11. 3. – út 17. 3.",
+            "validity_start_date": "2026-03-11",
+            "validity_end_date": "2026-03-17"
           },
           {
             "retailer_name": "Lidl",
             "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/AfTKyWvbe1tUUzcJvADDx4jLB4sqVLnz_80.jpg",
-            "price": "399,00 Kč / 1000 g",
-            "discount": "",
-            "validity": "platí do neděle 1. 3.",
-            "validity_start_date": "2026-02-26",
-            "validity_end_date": "2026-03-01"
+            "price": "29,90 Kč / 100 g",
+            "discount": null,
+            "validity": "čt 12. 3. – ne 15. 3.",
+            "validity_start_date": "2026-03-12",
+            "validity_end_date": "2026-03-15"
           }
         ],
         "error": false
@@ -77,7 +96,7 @@
   {
     "slug": "prirodni-voda-magnesia",
     "url": "https://www.kupi.cz/sleva/prirodni-voda-magnesia",
-    "markdown": "[Slevy](https://www.kupi.cz/slevy \"Slevy\") [Nealko nápoje](https://www.kupi.cz/slevy/nealko-napoje \"Nealko nápoje\") [Minerální a pramenité vody](https://www.kupi.cz/slevy/mineralni-pramenite-vody \"Minerální a pramenité vody\")\nPřírodní voda Magnesia\n![Přírodní voda Magnesia](https://img.kupi.cz/kupi/thumbs/prirodni-voda-magnesia-1_170_340.jpg) ilustrační obrázek\n#  Přírodní voda Magnesia \nv lokalitě [Praha](https://www.kupi.cz/sleva/prirodni-voda-magnesia \"Hlavní město, Česko\")\nPřidat produkt do oblíbených Zapněte si oblíbené a upozorníme vás na novou akci \n[Vše](https://www.kupi.cz/sleva/prirodni-voda-magnesia) [0.5 l](https://www.kupi.cz/sleva/prirodni-voda-magnesia) [1.5 l](https://www.kupi.cz/sleva/prirodni-voda-magnesia)\nBěžná cena: 0 Kč\n## Aktuální akční slevy Přírodní voda Magnesia 1.5 l\n## Doporučené akce\n[ ![Tesco leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/tesco-logo_80.png) ](https://www.kupi.cz/letaky/tesco \"Tesco leták\")\n[ Tesco  ](https://www.kupi.cz/letaky/tesco \"Tesco\")\n[29 nejbližších poboček](https://www.kupi.cz/obchod/tesco/tesco-praha-1 \"Tesco\")\ncena **14,90 Kč**\n/ 1.5 l\n9,93 Kč / 1 l \nplatí do úterý 3. 3. \n[ Přidat](https://www.kupi.cz/sleva/prirodni-voda-magnesia#9544677 \"Přidat Přírodní voda Magnesia do nákupního seznamu\")\nrůzné druhy\nod **14,90 Kč**\n## Akce dle ceny\n[ ![Penny Market leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/fWtbzkLpepWCEvjs5f6h58dcAERy6naC_80.jpg) ](https://www.kupi.cz/letaky/penny-market \"Penny Market leták\")\n[ Penny Market  ](https://www.kupi.cz/letaky/penny-market \"Penny Market\")\n[79 nejbližších poboček](https://www.kupi.cz/obchod/penny-market/penny-market-praha-hradecka \"Penny Market\")\ncena **14,90 Kč**\n/ 1.5 l\n–21 %\n9,93 Kč / 1 l \nplatí do úterý 3. 3. \n[ V letáku](https://www.kupi.cz/letak/penny-market-letak-512?page=16&map=199320990 \"Prohlédnout leták Penny Market s akcí Přírodní voda Magnesia\") [ Přidat](https://www.kupi.cz/sleva/prirodni-voda-magnesia#9595998 \"Přidat Přírodní voda Magnesia do nákupního seznamu\")\njemně perlivá\n[ ![Tesco leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/tesco-logo_80.png) ](https://www.kupi.cz/letaky/tesco \"Tesco leták\")\n[ Tesco  ](https://www.kupi.cz/letaky/tesco \"Tesco\")\n[29 nejbližších poboček](https://www.kupi.cz/obchod/tesco/tesco-praha-1 \"Tesco\")\ncena **14,90 Kč**\n/ 1.5 l\n9,93 Kč / 1 l \nplatí do úterý 3. 3. \n[ Přidat](https://www.kupi.cz/sleva/prirodni-voda-magnesia#9544677 \"Přidat Přírodní voda Magnesia do nákupního seznamu\")\nrůzné druhy\n[ ![Globus leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/JdngCjgKiokgHpNQ3bNkFbgXAPi4TP6L_80.jpg) ](https://www.kupi.cz/letaky/globus \"Globus leták\")\n[ Globus  ](https://www.kupi.cz/letaky/globus \"Globus\")\n[4 nejbližší pobočky](https://www.kupi.cz/obchod/globus/globus-praha-sterboholy-nakupni \"Globus\")\ncena **14,90 Kč**\n/ 1.5 l\n9,93 Kč / 1 l \nplatí do pondělí 2. 3. \n[ V letáku](https://www.kupi.cz/letak/globus-letak-praha-sterboholy-tydny-skvelych-cen-6?page=17&map=198177540 \"Prohlédnout leták Globus s akcí Přírodní voda Magnesia\") [ Přidat](https://www.kupi.cz/sleva/prirodni-voda-magnesia#9495909 \"Přidat Přírodní voda Magnesia do nákupního seznamu\")\nrůzné druhy\n[ ![JIP leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/B96323daf15c19d50d42aee79c99de7f_80.png) ](https://www.kupi.cz/letaky/jip \"JIP leták\")\n[ JIP CC Cash & Carry  ](https://www.kupi.cz/letaky/jip \"JIP\")\n[1 nejbližší pobočka](https://www.kupi.cz/obchod/jip/jip-boranovice-hovorcovicka \"JIP\")\ncena **15,90 Kč**\n/ 1.5 l\n10,60 Kč / 1 l \nplatí do úterý 3. 3. \n[ V letáku](https://www.kupi.cz/letak/jip-letak-cc-cash-carry-ceske-budejovice-most-nachod-svoboda-nad-upou-susice-27?page=15&map=199321872 \"Prohlédnout leták JIP s akcí Přírodní voda Magnesia\") [ Přidat](https://www.kupi.cz/sleva/prirodni-voda-magnesia#9596199 \"Přidat Přírodní voda Magnesia do nákupního seznamu\")\nperlivá, jemně perlivá, neperlivá\n[ ![FLOP TOP leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/beKk8qvNrJSbTC7jpxUqowS2duyMzLsH_80.jpg) ](https://www.kupi.cz/letaky/flop-top \"FLOP TOP leták\")\n[ FLOP TOP  ](https://www.kupi.cz/letaky/flop-top \"FLOP TOP\")\n[15 nejbližších poboček](https://www.kupi.cz/obchod/flop-top/flop-praha-12-modrany-pertoldova \"FLOP TOP\")\ncena **16,90 Kč**\n/ 1.5 l\n11,27 Kč / 1 l \nplatí do úterý 3. 3. \n[ V letáku](https://www.kupi.cz/letak/flop-top-letak-196?page=10&map=199317528 \"Prohlédnout leták FLOP TOP s akcí Přírodní voda Magnesia\") [ Přidat](https://www.kupi.cz/sleva/prirodni-voda-magnesia#9590778 \"Přidat Přírodní voda Magnesia do nákupního seznamu\")\nneperlivá, jemně perlivá, perlivá\n[ ![FLOP leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/type-flop_80.png) ](https://www.kupi.cz/letaky/flop \"FLOP leták\")\n[ FLOP  ](https://www.kupi.cz/letaky/flop \"FLOP\")\n[1 nejbližší pobočka](https://www.kupi.cz/obchod/flop/flop-ondrejov \"FLOP\")\ncena **16,90 Kč**\n/ 1.5 l\n11,27 Kč / 1 l \nplatí do úterý 3. 3. \n[ V letáku](https://www.kupi.cz/letak/flop-letak-195?page=10&map=199312023 \"Prohlédnout leták FLOP s akcí Přírodní voda Magnesia\") [ Přidat](https://www.kupi.cz/sleva/prirodni-voda-magnesia#9588390 \"Přidat Přírodní voda Magnesia do nákupního seznamu\")\nperlivá, jemně perlivá, neperlivá\n[ ![TAMDA FOODS leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/G2EJGvc7m3SFKxMCGBXzY2gcShMFd8dt_80.jpg) ](https://www.kupi.cz/letaky/tamda-foods \"TAMDA FOODS leták\")\n[ TAMDA FOODS  ](https://www.kupi.cz/letaky/tamda-foods \"TAMDA FOODS\")\n[1 nejbližší pobočka](https://www.kupi.cz/obchod/tamda-foods/tamda-foods-praha-libusska \"TAMDA FOODS\")\ncena **12,90 Kč**\n/ 0.5 l\n25,80 Kč / 1 l \nPlatí pro členy klubu \nplatí do úterý 3. 3. \n[ V letáku](https://www.kupi.cz/letak/tamda-foods-letak-415?page=10&map=199334301 \"Prohlédnout leták TAMDA FOODS s akcí Přírodní voda Magnesia\") [ Přidat](https://www.kupi.cz/sleva/prirodni-voda-magnesia#9602169 \"Přidat Přírodní voda Magnesia do nákupního seznamu\")\n3 druhy\nod **12,90 Kč**\n",
+    "markdown": "[Slevy](https://www.kupi.cz/slevy \"Slevy\") [Nealko nápoje](https://www.kupi.cz/slevy/nealko-napoje \"Nealko nápoje\") [Minerální a pramenité vody](https://www.kupi.cz/slevy/mineralni-pramenite-vody \"Minerální a pramenité vody\")\nPřírodní voda Magnesia\n![Přírodní voda Magnesia](https://img.kupi.cz/kupi/thumbs/prirodni-voda-magnesia-1_170_340.jpg) ilustrační obrázek\n#  Přírodní voda Magnesia \nv lokalitě [Praha](https://www.kupi.cz/sleva/prirodni-voda-magnesia \"Hlavní město, Česko\")\nPřidat produkt do oblíbených Zapněte si oblíbené a upozorníme vás na novou akci \n[Vše](https://www.kupi.cz/sleva/prirodni-voda-magnesia) [0.5 l](https://www.kupi.cz/sleva/prirodni-voda-magnesia) [1.5 l](https://www.kupi.cz/sleva/prirodni-voda-magnesia)\nBěžná cena: 0 Kč\n## Aktuální akční slevy Přírodní voda Magnesia 1.5 l\n## Doporučené akce\n[ ![Albert leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/bsaArR6LipV3RY3W5L3h7oQfkNC8gt7Z_80.jpg) ](https://www.kupi.cz/letaky/albert \"Albert leták\")\n[ Albert  ](https://www.kupi.cz/letaky/albert \"Albert\")\n[85 nejbližších poboček](https://www.kupi.cz/obchod/albert/albert-praha-1-namesti-republiky-1078-1 \"Albert\")\ncena **14,90 Kč**\n/ 1.5 l\n–21 %\n9,93 Kč / 1 l \nzítra končí \n[ V letáku](https://www.kupi.cz/letak/albert-hypermarket-letak-621?page=6&map=199831389 \"Prohlédnout leták Albert s akcí Přírodní voda Magnesia\") [ Přidat](https://www.kupi.cz/sleva/prirodni-voda-magnesia#9631203 \"Přidat Přírodní voda Magnesia do nákupního seznamu\")\nvybrané druhy\nod **14,90 Kč**\n## Akce dle ceny\n[ ![Albert leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/bsaArR6LipV3RY3W5L3h7oQfkNC8gt7Z_80.jpg) ](https://www.kupi.cz/letaky/albert \"Albert leták\")\n[ Albert  ](https://www.kupi.cz/letaky/albert \"Albert\")\n[85 nejbližších poboček](https://www.kupi.cz/obchod/albert/albert-praha-1-namesti-republiky-1078-1 \"Albert\")\ncena **14,90 Kč**\n/ 1.5 l\n–21 %\n9,93 Kč / 1 l \nzítra končí \n[ V letáku](https://www.kupi.cz/letak/albert-hypermarket-letak-621?page=6&map=199831389 \"Prohlédnout leták Albert s akcí Přírodní voda Magnesia\") [ Přidat](https://www.kupi.cz/sleva/prirodni-voda-magnesia#9631203 \"Přidat Přírodní voda Magnesia do nákupního seznamu\")\nvybrané druhy\n[ ![Ratio leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/mkdzGwpMBJYYRi6eWxQbfnSS8AMiaZRT_80.jpg) ](https://www.kupi.cz/letaky/ratio \"Ratio leták\")\n[ Ratio  ](https://www.kupi.cz/letaky/ratio \"Ratio\")\n[1 nejbližší pobočka](https://www.kupi.cz/obchod/ratio/ratio-s-r-o-praha-5-k-radotinu \"Ratio\")\ncena **15,90 Kč**\n/ 1.5 l\n10,60 Kč / 1 l \nplatí do úterý 31. 3. \n[ V letáku](https://www.kupi.cz/letak/ratio-letak-97?page=8&map=199826175 \"Prohlédnout leták Ratio s akcí Přírodní voda Magnesia\") [ Přidat](https://www.kupi.cz/sleva/prirodni-voda-magnesia#9629496 \"Přidat Přírodní voda Magnesia do nákupního seznamu\")\n[ ![BENE NÁPOJE leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/benecentrum-sro_80.jpeg) ](https://www.kupi.cz/letaky/bene-napoje \"BENE NÁPOJE leták\")\n[ BENE NÁPOJE  ](https://www.kupi.cz/letaky/bene-napoje \"BENE NÁPOJE\")\n[2 nejbližší pobočky](https://www.kupi.cz/obchod/bene-napoje/bene-napoje-praha \"BENE NÁPOJE\")\ncena **16,50 Kč**\n/ 1.5 l\n11,00 Kč / 1 l \nplatí do úterý 31. 3. \n[ V letáku](https://www.kupi.cz/letak/bene-napoje-letak-32?page=4&map=199822245 \"Prohlédnout leták BENE NÁPOJE s akcí Přírodní voda Magnesia\") [ Přidat](https://www.kupi.cz/sleva/prirodni-voda-magnesia#9625074 \"Přidat Přírodní voda Magnesia do nákupního seznamu\")\n[ ![ESO MARKET leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/hmdaxnaupHxWE3r6evP1H3cM2XVBZ85j_80.jpg) ](https://www.kupi.cz/letaky/eso-market \"ESO MARKET leták\")\n[ ESO MARKET  ](https://www.kupi.cz/letaky/eso-market \"ESO MARKET\")\n[36 nejbližších poboček](https://www.kupi.cz/obchod/eso-market/eso-market-praha-2-urugvayska \"ESO MARKET\")\ncena **19,90 Kč**\n/ 1.5 l\n13,27 Kč / 1 l \nplatí do neděle 15. 3. \n[ V letáku](https://www.kupi.cz/letak/eso-market-letak-69?page=6&map=199807575 \"Prohlédnout leták ESO MARKET s akcí Přírodní voda Magnesia\") [ Přidat](https://www.kupi.cz/sleva/prirodni-voda-magnesia#9611526 \"Přidat Přírodní voda Magnesia do nákupního seznamu\")\nrůzné druhy\n[ ![Ratio leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/mkdzGwpMBJYYRi6eWxQbfnSS8AMiaZRT_80.jpg) ](https://www.kupi.cz/letaky/ratio \"Ratio leták\")\n[ Ratio  ](https://www.kupi.cz/letaky/ratio \"Ratio\")\n[1 nejbližší pobočka](https://www.kupi.cz/obchod/ratio/ratio-s-r-o-praha-5-k-radotinu \"Ratio\")\ncena **13,90 Kč**\n/ 0.5 l\n27,80 Kč / 1 l \nplatí do úterý 31. 3. \n[ V letáku](https://www.kupi.cz/letak/ratio-letak-97?page=8&map=199826136 \"Prohlédnout leták Ratio s akcí Přírodní voda Magnesia\") [ Přidat](https://www.kupi.cz/sleva/prirodni-voda-magnesia#9629493 \"Přidat Přírodní voda Magnesia do nákupního seznamu\")\n[ ![BENE NÁPOJE leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/benecentrum-sro_80.jpeg) ](https://www.kupi.cz/letaky/bene-napoje \"BENE NÁPOJE leták\")\n[ BENE NÁPOJE  ](https://www.kupi.cz/letaky/bene-napoje \"BENE NÁPOJE\")\n[2 nejbližší pobočky](https://www.kupi.cz/obchod/bene-napoje/bene-napoje-praha \"BENE NÁPOJE\")\ncena **14,40 Kč**\n/ 0.5 l\n28,80 Kč / 1 l \nplatí do úterý 31. 3. \n[ V letáku](https://www.kupi.cz/letak/bene-napoje-letak-32?page=7&map=199822296 \"Prohlédnout leták BENE NÁPOJE s akcí Přírodní voda Magnesia\") [ Přidat](https://www.kupi.cz/sleva/prirodni-voda-magnesia#9626466 \"Přidat Přírodní voda Magnesia do nákupního seznamu\")\nod **13,90 Kč**\n",
     "extracted_data": [
       {
         "product_name": "Přírodní voda Magnesia",
@@ -85,67 +104,58 @@
         "product_category": "Minerální a pramenité vody",
         "offers": [
           {
-            "retailer_name": "Tesco",
-            "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/tesco-logo_80.png",
-            "price": "14,90 Kč / 1.5 l",
-            "discount": "",
-            "validity": "platí do úterý 3. 3.",
-            "validity_start_date": "2026-02-26",
-            "validity_end_date": "2026-03-03"
-          },
-          {
-            "retailer_name": "Penny Market",
-            "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/fWtbzkLpepWCEvjs5f6h58dcAERy6naC_80.jpg",
+            "retailer_name": "Albert",
+            "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/bsaArR6LipV3RY3W5L3h7oQfkNC8gt7Z_80.jpg",
             "price": "14,90 Kč / 1.5 l",
             "discount": "-21 %",
-            "validity": "platí do úterý 3. 3.",
-            "validity_start_date": "2026-02-26",
-            "validity_end_date": "2026-03-03"
+            "validity": "zítra končí",
+            "validity_start_date": "2026-03-08",
+            "validity_end_date": "2026-03-10"
           },
           {
-            "retailer_name": "Globus",
-            "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/JdngCjgKiokgHpNQ3bNkFbgXAPi4TP6L_80.jpg",
-            "price": "14,90 Kč / 1.5 l",
-            "discount": "",
-            "validity": "platí do pondělí 2. 3.",
-            "validity_start_date": "2026-02-26",
-            "validity_end_date": "2026-03-02"
-          },
-          {
-            "retailer_name": "JIP CC Cash & Carry",
-            "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/B96323daf15c19d50d42aee79c99de7f_80.png",
+            "retailer_name": "Ratio",
+            "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/mkdzGwpMBJYYRi6eWxQbfnSS8AMiaZRT_80.jpg",
             "price": "15,90 Kč / 1.5 l",
             "discount": "",
-            "validity": "platí do úterý 3. 3.",
-            "validity_start_date": "2026-02-26",
-            "validity_end_date": "2026-03-03"
+            "validity": "platí do úterý 31. 3.",
+            "validity_start_date": "2026-03-09",
+            "validity_end_date": "2026-03-31"
           },
           {
-            "retailer_name": "FLOP TOP",
-            "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/beKk8qvNrJSbTC7jpxUqowS2duyMzLsH_80.jpg",
-            "price": "16,90 Kč / 1.5 l",
+            "retailer_name": "BENE NÁPOJE",
+            "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/benecentrum-sro_80.jpeg",
+            "price": "16,50 Kč / 1.5 l",
             "discount": "",
-            "validity": "platí do úterý 3. 3.",
-            "validity_start_date": "2026-02-26",
-            "validity_end_date": "2026-03-03"
+            "validity": "platí do úterý 31. 3.",
+            "validity_start_date": "2026-03-09",
+            "validity_end_date": "2026-03-31"
           },
           {
-            "retailer_name": "FLOP",
-            "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/type-flop_80.png",
-            "price": "16,90 Kč / 1.5 l",
+            "retailer_name": "ESO MARKET",
+            "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/hmdaxnaupHxWE3r6evP1H3cM2XVBZ85j_80.jpg",
+            "price": "19,90 Kč / 1.5 l",
             "discount": "",
-            "validity": "platí do úterý 3. 3.",
-            "validity_start_date": "2026-02-26",
-            "validity_end_date": "2026-03-03"
+            "validity": "platí do neděle 15. 3.",
+            "validity_start_date": "2026-03-09",
+            "validity_end_date": "2026-03-15"
           },
           {
-            "retailer_name": "TAMDA FOODS",
-            "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/G2EJGvc7m3SFKxMCGBXzY2gcShMFd8dt_80.jpg",
-            "price": "12,90 Kč / 0.5 l",
+            "retailer_name": "Ratio",
+            "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/mkdzGwpMBJYYRi6eWxQbfnSS8AMiaZRT_80.jpg",
+            "price": "13,90 Kč / 0.5 l",
             "discount": "",
-            "validity": "platí do úterý 3. 3.",
-            "validity_start_date": "2026-02-26",
-            "validity_end_date": "2026-03-03"
+            "validity": "platí do úterý 31. 3.",
+            "validity_start_date": "2026-03-09",
+            "validity_end_date": "2026-03-31"
+          },
+          {
+            "retailer_name": "BENE NÁPOJE",
+            "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/benecentrum-sro_80.jpeg",
+            "price": "14,40 Kč / 0.5 l",
+            "discount": "",
+            "validity": "platí do úterý 31. 3.",
+            "validity_start_date": "2026-03-09",
+            "validity_end_date": "2026-03-31"
           }
         ],
         "error": false
@@ -155,7 +165,7 @@
   {
     "slug": "ananas",
     "url": "https://www.kupi.cz/sleva/ananas",
-    "markdown": "[Slevy](https://www.kupi.cz/slevy \"Slevy\") [Ovoce a zelenina](https://www.kupi.cz/slevy/ovoce-a-zelenina \"Ovoce a zelenina\") [Banány a exotické ovoce](https://www.kupi.cz/slevy/banany-a-exoticke-ovoce \"Banány a exotické ovoce\")\nAnanas\n![Ananas](https://img.kupi.cz/kupi/thumbs/ananas-2_170_340.jpg) ilustrační obrázek\n#  Ananas \nv lokalitě [Praha](https://www.kupi.cz/sleva/ananas \"Hlavní město, Česko\")\nPřidat produkt do oblíbených Zapněte si oblíbené a upozorníme vás na novou akci \nBěžná cena: 0 Kč\n## Aktuální akční slevy Ananas 1 ks\n## Doporučené akce\n[ ![Albert leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/albert-supermarket_80.png) ](https://www.kupi.cz/letaky/albert \"Albert leták\")\n[ Albert supermarket  ](https://www.kupi.cz/letaky/albert \"Albert\")\n[73 nejbližších poboček](https://www.kupi.cz/obchod/albert/albert-praha-1-namesti-republiky-1078-1 \"Albert\")\ncena **39,90 Kč**\n/ 1 ks\n–42 %\n39,90 Kč / 1 ks \nplatí do úterý 3. 3. \n[ V letáku](https://www.kupi.cz/letak/albert-supermarket-letak-670?page=16&map=199321302 \"Prohlédnout leták Albert s akcí Ananas\") [ Přidat](https://www.kupi.cz/sleva/ananas#9592524 \"Přidat Ananas do nákupního seznamu\")\nsweet\nod **39,90 Kč**\nTento produkt má v akci pouze jeden obchod\n",
+    "markdown": "[Slevy](https://www.kupi.cz/slevy \"Slevy\") [Ovoce a zelenina](https://www.kupi.cz/slevy/ovoce-a-zelenina \"Ovoce a zelenina\") [Banány a exotické ovoce](https://www.kupi.cz/slevy/banany-a-exoticke-ovoce \"Banány a exotické ovoce\")\nAnanas\n![Ananas](https://img.kupi.cz/kupi/thumbs/ananas-2_170_340.jpg) ilustrační obrázek\n#  Ananas \nv lokalitě [Praha](https://www.kupi.cz/sleva/ananas \"Hlavní město, Česko\")\nPřidat produkt do oblíbených Zapněte si oblíbené a upozorníme vás na novou akci \nBěžná cena: 0 Kč\n## Aktuální akční slevy Ananas 1 ks\n## Akce dle ceny\n[ ![Kaufland leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/eaRwPtGAZU56PbmgTL9g9Mr74VGFckYK_80.jpg) ](https://www.kupi.cz/letaky/kaufland \"Kaufland leták\")\n[ Kaufland  ](https://www.kupi.cz/letaky/kaufland \"Kaufland\")\n[18 nejbližších poboček](https://www.kupi.cz/obchod/kaufland/kaufland-praha-8-liben \"Kaufland\")\ncena **44,90 Kč**\n/ 1 ks\n–35 %\n44,90 Kč / 1 ks \nzítra končí \n[ V letáku](https://www.kupi.cz/letak/kaufland-letak-praha-8-liben-510?page=10&map=200005554 \"Prohlédnout leták Kaufland s akcí Ananas\") [ Přidat](https://www.kupi.cz/sleva/ananas#9647757 \"Přidat Ananas do nákupního seznamu\")\nsweet\n[ ![Globus leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/JdngCjgKiokgHpNQ3bNkFbgXAPi4TP6L_80.jpg) ](https://www.kupi.cz/letaky/globus \"Globus leták\")\n[ Globus  ](https://www.kupi.cz/letaky/globus \"Globus\")\n[4 nejbližší pobočky](https://www.kupi.cz/obchod/globus/globus-praha-sterboholy-nakupni \"Globus\")\ncena **54,90 Kč**\n/ 1 ks\n–26 %\n54,90 Kč / 1 ks \nzítra končí \n[ V letáku](https://www.kupi.cz/letak/globus-letak-praha-sterboholy-149?page=12&map=200088549 \"Prohlédnout leták Globus s akcí Ananas\") [ Přidat](https://www.kupi.cz/sleva/ananas#9647793 \"Přidat Ananas do nákupního seznamu\")\nod **44,90 Kč**\n",
     "extracted_data": [
       {
         "product_name": "Ananas",
@@ -163,13 +173,22 @@
         "product_category": "Ovoce a zelenina",
         "offers": [
           {
-            "retailer_name": "Albert supermarket",
-            "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/albert-supermarket_80.png",
-            "price": "39,90 Kč / 1 ks",
-            "discount": "-42 %",
-            "validity": "platí do úterý 3. 3.",
-            "validity_start_date": "2026-02-26",
-            "validity_end_date": "2026-03-03"
+            "retailer_name": "Kaufland",
+            "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/eaRwPtGAZU56PbmgTL9g9Mr74VGFckYK_80.jpg",
+            "price": "44,90 Kč / 1 ks",
+            "discount": "-35 %",
+            "validity": "zítra končí",
+            "validity_start_date": "2026-03-09",
+            "validity_end_date": "2026-03-10"
+          },
+          {
+            "retailer_name": "Globus",
+            "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/JdngCjgKiokgHpNQ3bNkFbgXAPi4TP6L_80.jpg",
+            "price": "54,90 Kč / 1 ks",
+            "discount": "-26 %",
+            "validity": "zítra končí",
+            "validity_start_date": "2026-03-09",
+            "validity_end_date": "2026-03-10"
           }
         ],
         "error": false
