@@ -1,9 +1,14 @@
 import { ProductTimetable } from './ProductTimetable'
 import { ThemeToggle } from './components/ThemeToggle'
 import type { Product } from './types'
-import productsData from './combined_data.json'
 
-const products = productsData as Product[]
+const productModules = import.meta.glob<{ default: Product }>('./json/*.json', {
+  eager: true,
+})
+
+const products = Object.values(productModules)
+  .map((module) => module.default)
+  .sort((a, b) => a.slug.localeCompare(b.slug))
 
 function App() {
 

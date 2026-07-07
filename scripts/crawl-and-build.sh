@@ -15,22 +15,24 @@ echo "=========================================="
 cd "$PROJECT_ROOT/src_crawler"
 uv run main.py
 
-# Check if combined_data.json was created
-CRAWLER_OUTPUT="$PROJECT_ROOT/src_crawler/data/raw/combined_data.json"
-if [ ! -f "$CRAWLER_OUTPUT" ]; then
-    echo "Error: combined_data.json not found at $CRAWLER_OUTPUT"
+# Check if crawler output folder was created
+CRAWLER_OUTPUT_DIR="$PROJECT_ROOT/src_crawler/data/raw/json"
+if [ ! -d "$CRAWLER_OUTPUT_DIR" ]; then
+    echo "Error: crawler output folder not found at $CRAWLER_OUTPUT_DIR"
     exit 1
 fi
 
 echo ""
 echo "=========================================="
-echo "Copying combined_data.json to web app..."
+echo "Copying JSON folder to web app..."
 echo "=========================================="
 
-# Copy combined_data.json to web app public folder
-WEB_PUBLIC="$PROJECT_ROOT/src_web/src/combined_data.json"
-cp "$CRAWLER_OUTPUT" "$WEB_PUBLIC"
-echo "✓ Copied combined_data.json to $WEB_PUBLIC"
+# Copy all crawled JSON files to web app folder
+WEB_JSON_DIR="$PROJECT_ROOT/src_web/src/json"
+mkdir -p "$WEB_JSON_DIR"
+rm -rf "$WEB_JSON_DIR"/*
+cp -R "$CRAWLER_OUTPUT_DIR"/. "$WEB_JSON_DIR"/
+echo "✓ Copied JSON files from $CRAWLER_OUTPUT_DIR to $WEB_JSON_DIR"
 
 
 echo "=========================================="

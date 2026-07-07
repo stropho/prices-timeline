@@ -259,34 +259,29 @@ async def main() -> None:
     logger.info("Starting crawl...")
     results = await crawler.crawl_urls(urls, schema_mode=SchemaMode.LLM, delay_between=True)
 
-    # Write markdown files and build combined_data in a single loop
-    markdown_dir = storage.raw_dir / "markdown"
-    markdown_dir.mkdir(parents=True, exist_ok=True)
-    combined_data = []
+    # Write only per-entry JSON files to the web data directory
+    json_dir = storage.raw_dir / "json"
+    json_dir.mkdir(parents=True, exist_ok=True)
+    import json
+
     for i, result in enumerate(results):
         url = result.get("url", "")
         slug = storage._extract_slug_from_url(url) if url else f"entry_{i+1}"
-        filename = f"{slug}.md"
-        md_path = markdown_dir / filename
         markdown_content = result.get("raw_markdown") or ""
-        with open(md_path, "w", encoding="utf-8") as f:
-            f.write(markdown_content)
         entry = {
             "slug": slug,
             "url": url,
             "markdown": markdown_content,
             "extracted_data": result.get("extracted_data")
         }
-        combined_data.append(entry)
-    logger.info(f"✓ Saved markdown files to: {markdown_dir}")
-    # Write combined_data.json
-    combined_path = storage.raw_dir / "combined_data.json"
-    import json
-    with open(combined_path, "w", encoding="utf-8") as f:
-        json.dump(combined_data, f, indent=2, ensure_ascii=False)
-    logger.info(f"✓ Aggregated {len(combined_data)} entries into: {combined_path}")
+
+        json_path = json_dir / f"{slug}.json"
+        with open(json_path, "w", encoding="utf-8") as f:
+            json.dump(entry, f, indent=2, ensure_ascii=False)
+
+    logger.info(f"✓ Saved per-entry JSON files to: {json_dir}")
     logger.info("=" * 60)
-    logger.info("Crawl completed! Markdown files saved and combined_data.json created.")
+    logger.info("Crawl completed! Per-entry JSON files created.")
     logger.info(f"Success: {sum(1 for r in results if r.get('success'))}/{len(urls)}")
     logger.info(f"Errors: {sum(1 for r in results if not r.get('success'))}/{len(urls)}")
     logger.info("=" * 60)
