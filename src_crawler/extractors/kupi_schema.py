@@ -2,20 +2,12 @@
 from crawl4ai.extraction_strategy import JsonCssExtractionStrategy, LLMExtractionStrategy
 
 
-def get_kupi_schema_llm() -> LLMExtractionStrategy:
-    """
-    Returns LLM-based extraction for kupi.cz.
-    Note: Requires LLM_API_KEY in environment.
-    
-    The CSS selector filtering is handled by CrawlerRunConfig.css_selector parameter,
-    which filters HTML before it reaches the LLM, reducing token usage.
-    """
-    from crawl4ai import LLMConfig
+def get_llm_instruction() -> str:
+    """Returns the extraction instruction for direct litellm calls."""
     import os
     from datetime import datetime
     today = datetime.now().strftime('%Y-%m-%d')
-    
-    instruction = f"""
+    return f"""
         ## Goal
         Extract promotional offers for the product from this Czech deals page.
 
@@ -45,22 +37,9 @@ def get_kupi_schema_llm() -> LLMExtractionStrategy:
                 - note: based on `validity` attribute, infer start date if possible
             - validity_end_date: string (ISO format, if available)
                 - note: based on `validity` attribute, infer end date if possible
+
+        Return ONLY a valid JSON object. No markdown, no explanation.
         """
-
-    provider = os.getenv("LLM_PROVIDER")
-    api_token = os.getenv("LLM_API_KEY")
-    if not api_token:
-        raise RuntimeError("LLM_API_KEY environment variable is required for Gemini LLM extraction.")
-    llm_config = LLMConfig(
-        provider=provider,
-        api_token=api_token
-    )
-
-    return LLMExtractionStrategy(
-        llm_config=llm_config,
-        extraction_type="schema",
-        instruction=instruction
-    )
 
 
 def get_kupi_schema() -> JsonCssExtractionStrategy:
