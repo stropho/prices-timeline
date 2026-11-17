@@ -39,7 +39,7 @@ echo "=========================================="
 echo "Remove crawled data..."
 echo "=========================================="
 
-# rm -rf "$PROJECT_ROOT/src_crawler/data"
+rm -rf "$PROJECT_ROOT/src_crawler/data"
 echo "✓ Removed crawled data"
 
 echo ""

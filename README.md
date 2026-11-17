@@ -27,8 +27,6 @@ A full-stack application for tracking and visualizing promotional product deals.
    uv sync
    ```
 
-**Note**: in case Chrome browser is missing, run `uv run python -m playwright install chromium`
-
 2. **Configure URLs:**
    Edit `src_crawler/config/urls.txt` and add target URLs (one per line)
 
