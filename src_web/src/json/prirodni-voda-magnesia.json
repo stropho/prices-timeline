@@ -14,7 +14,8 @@
           "price": "14,90 Kč / 1.5 l",
           "discount": "-21 %",
           "validity": "platí do úterý 24. 11.",
-          "validity_end_date": "2026-11-24"
+          "validity_end_date": "2026-11-24",
+          "validity_start_date": "2026-11-18"
         },
         {
           "retailer_name": "Tesco",
@@ -22,7 +23,8 @@
           "price": "14,90 Kč / 1.5 l",
           "discount": "",
           "validity": "platí do úterý 24. 11.",
-          "validity_end_date": "2026-11-24"
+          "validity_end_date": "2026-11-24",
+          "validity_start_date": "2026-11-18"
         },
         {
           "retailer_name": "Penny Market",
@@ -30,7 +32,8 @@
           "price": "14,90 Kč / 1.5 l",
           "discount": "-21 %",
           "validity": "platí do úterý 24. 11.",
-          "validity_end_date": "2026-11-24"
+          "validity_end_date": "2026-11-24",
+          "validity_start_date": "2026-11-18"
         },
         {
           "retailer_name": "BILLA",
@@ -38,7 +41,8 @@
           "price": "14,90 Kč / 1.5 l",
           "discount": "",
           "validity": "platí do úterý 24. 11.",
-          "validity_end_date": "2026-11-24"
+          "validity_end_date": "2026-11-24",
+          "validity_start_date": "2026-11-18"
         },
         {
           "retailer_name": "Kaufland",
@@ -46,7 +50,8 @@
           "price": "14,90 Kč / 1.5 l",
           "discount": "",
           "validity": "platí do úterý 24. 11.",
-          "validity_end_date": "2026-11-24"
+          "validity_end_date": "2026-11-24",
+          "validity_start_date": "2026-11-18"
         },
         {
           "retailer_name": "JIP CC Cash & Carry",
@@ -54,39 +59,8 @@
           "price": "14,90 Kč / 1.5 l",
           "discount": "",
           "validity": "platí do úterý 24. 11.",
-          "validity_end_date": "2026-11-24"
-        },
-        {
-          "retailer_name": "Ratio",
-          "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/mkdzGwpMBJYYRi6eWxQbfnSS8AMiaZRT_80.jpg",
-          "price": "15,90 Kč / 1.5 l",
-          "discount": "",
-          "validity": "platí do pondělí 30. 11.",
-          "validity_end_date": "2026-11-30"
-        },
-        {
-          "retailer_name": "Ratio",
-          "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/mkdzGwpMBJYYRi6eWxQbfnSS8AMiaZRT_80.jpg",
-          "price": "13,90 Kč / 0.5 l",
-          "discount": "",
-          "validity": "platí do pondělí 30. 11.",
-          "validity_end_date": "2026-11-30"
-        },
-        {
-          "retailer_name": "BENE NÁPOJE",
-          "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/benecentrum-sro_80.jpeg",
-          "price": "14,40 Kč / 0.5 l",
-          "discount": "",
-          "validity": "platí do pondělí 30. 11.",
-          "validity_end_date": "2026-11-30"
-        },
-        {
-          "retailer_name": "Globus",
-          "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/JdngCjgKiokgHpNQ3bNkFbgXAPi4TP6L_80.jpg",
-          "price": "16,90 Kč / 0.5 l",
-          "discount": "",
-          "validity": "platí do úterý 24. 11.",
-          "validity_end_date": "2026-11-24"
+          "validity_end_date": "2026-11-24",
+          "validity_start_date": "2026-11-18"
         },
         {
           "retailer_name": "JIP CC Cash & Carry",
@@ -94,7 +68,44 @@
           "price": "12,90 Kč / 0.5 l",
           "discount": "",
           "validity": "platí do úterý 24. 11.",
-          "validity_end_date": "2026-11-24"
+          "validity_end_date": "2026-11-24",
+          "validity_start_date": "2026-11-18"
+        },
+        {
+          "retailer_name": "Ratio",
+          "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/mkdzGwpMBJYYRi6eWxQbfnSS8AMiaZRT_80.jpg",
+          "price": "15,90 Kč / 1.5 l",
+          "discount": "",
+          "validity": "platí do pondělí 30. 11.",
+          "validity_end_date": "2026-11-30",
+          "validity_start_date": "2026-11-18"
+        },
+        {
+          "retailer_name": "Ratio",
+          "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/mkdzGwpMBJYYRi6eWxQbfnSS8AMiaZRT_80.jpg",
+          "price": "13,90 Kč / 0.5 l",
+          "discount": "",
+          "validity": "platí do pondělí 30. 11.",
+          "validity_end_date": "2026-11-30",
+          "validity_start_date": "2026-11-18"
+        },
+        {
+          "retailer_name": "BENE NÁPOJE",
+          "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/benecentrum-sro_80.jpeg",
+          "price": "14,40 Kč / 0.5 l",
+          "discount": "",
+          "validity": "platí do pondělí 30. 11.",
+          "validity_end_date": "2026-11-30",
+          "validity_start_date": "2026-11-18"
+        },
+        {
+          "retailer_name": "Globus",
+          "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/JdngCjgKiokgHpNQ3bNkFbgXAPi4TP6L_80.jpg",
+          "price": "16,90 Kč / 0.5 l",
+          "discount": "",
+          "validity": "platí do úterý 24. 11.",
+          "validity_end_date": "2026-11-24",
+          "validity_start_date": "2026-11-18"
         }
       ]
     }

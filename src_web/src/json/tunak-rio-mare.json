@@ -14,7 +14,7 @@
           "price": "124,90 Kč / 3x 80 g",
           "discount": "-13 %",
           "validity": "platí do úterý 1. 12.",
-          "validity_start_date": null,
+          "validity_start_date": "2026-11-18",
           "validity_end_date": "2026-12-01"
         },
         {
@@ -23,7 +23,7 @@
           "price": "199,90 Kč / 7x 80 g",
           "discount": "-55 %",
           "validity": "platí do úterý 1. 12.",
-          "validity_start_date": null,
+          "validity_start_date": "2026-11-18",
           "validity_end_date": "2026-12-01"
         },
         {
@@ -32,7 +32,7 @@
           "price": "109,90 Kč / 3x 65 g",
           "discount": "-42 %",
           "validity": "platí do úterý 15. 12.",
-          "validity_start_date": null,
+          "validity_start_date": "2026-11-18",
           "validity_end_date": "2026-12-15"
         }
       ]

@@ -9,22 +9,31 @@
       "product_category": "Ryby a mořské plody",
       "offers": [
         {
-          "retailer_name": "Albert",
-          "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/albert-supermarket_80.png",
+          "retailer_name": "Albert supermarket",
+          "retailer_logo": "https://img.kupi.cz/kupi/thumbs/logos_shopy/albert-supermarket_80.png",
           "price": "28,90 Kč / 100 g",
           "discount": "-45 %",
           "validity": "platí do úterý 24. 11.",
-          "validity_start_date": null,
+          "validity_start_date": "2026-11-18",
           "validity_end_date": "2026-11-24"
         },
         {
           "retailer_name": "BILLA",
-          "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/MAwEX34sXN6bHQ3FWQSbsxxp1xk4rXbw_80.jpg",
+          "retailer_logo": "https://img.kupi.cz/kupi/thumbs/logos_shopy/MAwEX34sXN6bHQ3FWQSbsxxp1xk4rXbw_80.jpg",
           "price": "29,90 Kč / 100 g",
           "discount": "-40 %",
           "validity": "čt 19. 11. – ne 22. 11.",
           "validity_start_date": "2026-11-19",
           "validity_end_date": "2026-11-22"
+        },
+        {
+          "retailer_name": "Albert hypermarket",
+          "retailer_logo": "https://img.kupi.cz/kupi/thumbs/logos_shopy/albert-hypermarket_80.png",
+          "price": "28,90 Kč / 100 g",
+          "discount": "-45 %",
+          "validity": "platí do úterý 24. 11.",
+          "validity_start_date": "2026-11-18",
+          "validity_end_date": "2026-11-24"
         }
       ]
     }

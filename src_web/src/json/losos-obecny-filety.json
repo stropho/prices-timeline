@@ -14,8 +14,8 @@
           "price": "28,90 Kč / 100 g",
           "discount": "-46 %",
           "validity": "platí do úterý 24. 11.",
-          "validity_start_date": null,
-          "validity_end_date": "2026-11-24"
+          "validity_end_date": "2026-11-24",
+          "validity_start_date": "2026-11-18"
         },
         {
           "retailer_name": "Tesco",
@@ -23,8 +23,8 @@
           "price": "34,90 Kč / 100 g",
           "discount": "-35 %",
           "validity": "platí do úterý 24. 11.",
-          "validity_start_date": null,
-          "validity_end_date": "2026-11-24"
+          "validity_end_date": "2026-11-24",
+          "validity_start_date": "2026-11-18"
         },
         {
           "retailer_name": "Makro",
@@ -32,8 +32,8 @@
           "price": "110,88 Kč / 200 g",
           "discount": "",
           "validity": "platí do úterý 1. 12.",
-          "validity_start_date": null,
-          "validity_end_date": "2026-12-01"
+          "validity_end_date": "2026-12-01",
+          "validity_start_date": "2026-11-18"
         }
       ]
     }

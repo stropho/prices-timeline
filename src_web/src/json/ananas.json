@@ -14,7 +14,7 @@
           "price": "39,90 Kč / 1 ks",
           "discount": "-42 %",
           "validity": "platí do úterý 24. 11.",
-          "validity_start_date": null,
+          "validity_start_date": "2026-11-18",
           "validity_end_date": "2026-11-24"
         },
         {
@@ -23,7 +23,7 @@
           "price": "39,90 Kč / 1 ks",
           "discount": "-42 %",
           "validity": "platí do úterý 24. 11.",
-          "validity_start_date": null,
+          "validity_start_date": "2026-11-18",
           "validity_end_date": "2026-11-24"
         }
       ]

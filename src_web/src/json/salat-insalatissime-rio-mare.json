@@ -10,38 +10,38 @@
       "offers": [
         {
           "retailer_name": "Albert",
-          "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/bsaArR6LipV3RY3W5L3h7oQfkNC8gt7Z_80.jpg",
+          "retailer_logo": "https://img.kupi.cz/kupi/thumbs/logos_shopy/bsaArR6LipV3RY3W5L3h7oQfkNC8gt7Z_80.jpg",
           "price": "54,90 Kč / 160 g",
           "discount": "-45 %",
           "validity": "platí do úterý 1. 12.",
-          "validity_start_date": null,
-          "validity_end_date": "2026-12-01"
-        },
-        {
-          "retailer_name": "Albert",
-          "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/bsaArR6LipV3RY3W5L3h7oQfkNC8gt7Z_80.jpg",
-          "price": "59,90 Kč / 160 g",
-          "discount": "-40 %",
-          "validity": "platí do úterý 1. 12.",
-          "validity_start_date": null,
+          "validity_start_date": "2026-11-18",
           "validity_end_date": "2026-12-01"
         },
         {
           "retailer_name": "BILLA",
-          "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/MAwEX34sXN6bHQ3FWQSbsxxp1xk4rXbw_80.jpg",
+          "retailer_logo": "https://img.kupi.cz/kupi/thumbs/logos_shopy/MAwEX34sXN6bHQ3FWQSbsxxp1xk4rXbw_80.jpg",
           "price": "164,90 Kč / 3x 160 g",
           "discount": "",
           "validity": "platí do úterý 15. 12.",
-          "validity_start_date": null,
+          "validity_start_date": "2026-11-18",
           "validity_end_date": "2026-12-15"
         },
         {
+          "retailer_name": "Albert",
+          "retailer_logo": "https://img.kupi.cz/kupi/thumbs/logos_shopy/bsaArR6LipV3RY3W5L3h7oQfkNC8gt7Z_80.jpg",
+          "price": "59,90 Kč / 160 g",
+          "discount": "-40 %",
+          "validity": "platí do úterý 1. 12.",
+          "validity_start_date": "2026-11-18",
+          "validity_end_date": "2026-12-01"
+        },
+        {
           "retailer_name": "Ratio",
-          "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/mkdzGwpMBJYYRi6eWxQbfnSS8AMiaZRT_80.jpg",
+          "retailer_logo": "https://img.kupi.cz/kupi/thumbs/logos_shopy/mkdzGwpMBJYYRi6eWxQbfnSS8AMiaZRT_80.jpg",
           "price": "119,90 Kč / 2x 160 g",
           "discount": "",
           "validity": "platí do pondělí 30. 11.",
-          "validity_start_date": null,
+          "validity_start_date": "2026-11-18",
           "validity_end_date": "2026-11-30"
         }
       ]
