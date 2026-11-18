@@ -4,7 +4,7 @@ import logging
 import os
 from typing import Dict, Any, List, Optional, Union
 from crawl4ai import AsyncWebCrawler, BrowserConfig, CrawlerRunConfig, CacheMode
-from extractors.kupi_schema import get_kupi_schema, get_simple_kupi_schema, get_kupi_schema_llm
+from extractors.kupi_schema import get_kupi_schema, get_simple_kupi_schema, get_llm_instruction
 from enum import Enum
 
 class SchemaMode(Enum):
@@ -84,40 +84,47 @@ class KupiCrawler:
         logger.info(f"Crawling URL: {url}")
         
         # Choose extraction schema
-        target_elements: Optional[List[str]] = None
         if schema_mode == SchemaMode.LLM:
-            # Get target elements from environment (pipe-delimited list of CSS selectors)
-            css_selector_str = os.getenv("LLM_CSS_SELECTOR")
-            if css_selector_str:
-                target_elements = [selector.strip() for selector in css_selector_str.split("|") if selector.strip()]
-            extraction_strategy = get_kupi_schema_llm()
-            if target_elements:
-                logger.info(f"Using LLM extraction schema with target elements: {target_elements}")
-            else:
-                logger.info("Using LLM extraction schema without target element filtering")
+            # Crawl without extraction strategy; call litellm directly after to avoid
+            # crawl4ai's chunking + <blocks> XML prompt which breaks Groq JSON mode.
+            css_selector_str = os.getenv("LLM_CSS_SELECTOR", "")
+            # CrawlerRunConfig css_selector uses comma-separated selectors
+            css_selector = ", ".join(s.strip() for s in css_selector_str.split("|") if s.strip()) or None
+            run_config = CrawlerRunConfig(
+                cache_mode=self.default_run_config.cache_mode,
+                page_timeout=self.default_run_config.page_timeout,
+                wait_until=self.default_run_config.wait_until,
+                css_selector=css_selector,
+                verbose=True
+            )
+            logger.info(f"LLM mode: crawling with css_selector={css_selector!r}")
         elif schema_mode == SchemaMode.SIMPLE:
             extraction_strategy = get_simple_kupi_schema()
             logger.info("Using simple extraction schema")
+            run_config = CrawlerRunConfig(
+                cache_mode=self.default_run_config.cache_mode,
+                page_timeout=self.default_run_config.page_timeout,
+                wait_until=self.default_run_config.wait_until,
+                extraction_strategy=extraction_strategy,
+                verbose=True
+            )
         else:
             extraction_strategy = get_kupi_schema()
             logger.info("Using detailed extraction schema")
-        
-        # Update run config with extraction strategy and target elements
-        # The target_elements parameter filters HTML before processing, reducing LLM token usage
-        run_config = CrawlerRunConfig(
-            cache_mode=self.default_run_config.cache_mode,
-            page_timeout=self.default_run_config.page_timeout,
-            wait_until=self.default_run_config.wait_until,
-            extraction_strategy=extraction_strategy,
-            target_elements=target_elements,  # Filter HTML before LLM processing
-            verbose=True
-        )
+            run_config = CrawlerRunConfig(
+                cache_mode=self.default_run_config.cache_mode,
+                page_timeout=self.default_run_config.page_timeout,
+                wait_until=self.default_run_config.wait_until,
+                extraction_strategy=extraction_strategy,
+                verbose=True
+            )
         
         result_data = {
             "success": False,
             "url": url,
             "extracted_data": None,
             "raw_markdown": None,
+            "token_usage": None,
             "error": None
         }
         
@@ -130,21 +137,29 @@ class KupiCrawler:
                 
                 if result.success:
                     logger.info(f"Successfully crawled: {url}")
-                    
-                    # Parse extracted content
-                    extracted_data = None
-                    if result.extracted_content:
-                        try:
-                            import json
-                            extracted_data = json.loads(result.extracted_content)
-                        except json.JSONDecodeError as e:
-                            logger.error(f"Failed to parse extracted content: {e}")
-                            extracted_data = {"raw": result.extracted_content}
-                    
+                    markdown = result.markdown.raw_markdown if result.markdown else ""
+                    result_data["raw_markdown"] = markdown
                     result_data["success"] = True
-                    result_data["extracted_data"] = extracted_data
-                    result_data["raw_markdown"] = result.markdown.raw_markdown if result.markdown else None
-                    
+
+                    if schema_mode == SchemaMode.LLM:
+                        try:
+                            extracted_data, token_usage = await self._extract_with_llm(markdown, url)
+                            result_data["extracted_data"] = extracted_data
+                            result_data["token_usage"] = token_usage
+                        except Exception as llm_err:
+                            logger.error(f"LLM extraction failed for {url}: {llm_err}")
+                            result_data["extracted_data"] = [{"error": True, "content": str(llm_err)}]
+                    else:
+                        import json
+                        extracted_data = None
+                        if result.extracted_content:
+                            try:
+                                extracted_data = json.loads(result.extracted_content)
+                            except json.JSONDecodeError as e:
+                                logger.error(f"Failed to parse extracted content: {e}")
+                                extracted_data = {"raw": result.extracted_content}
+                        result_data["extracted_data"] = extracted_data
+
                 else:
                     logger.error(f"Crawl failed for {url}: {result.error_message}")
                     result_data["error"] = result.error_message
@@ -154,7 +169,45 @@ class KupiCrawler:
             result_data["error"] = str(e)
         
         return result_data
-    
+
+    async def _extract_with_llm(self, markdown: str, url: str):
+        """Call litellm directly on the full markdown — no chunking, no XML wrapper."""
+        import json
+        from litellm import acompletion
+        instruction = get_llm_instruction()
+        provider = os.getenv("LLM_PROVIDER")
+        api_key = os.getenv("LLM_API_KEY")
+        if not markdown.strip():
+            logger.warning(f"Empty markdown for {url} — check LLM_CSS_SELECTOR")
+        logger.info(f"Calling LLM ({provider}) with {len(markdown)} chars of markdown")
+        response = await acompletion(
+            model=provider,
+            messages=[
+                {"role": "system", "content": "You are a data extraction assistant. Always return valid JSON."},
+                {"role": "user", "content": f"{instruction}\n\nPage content:\n{markdown}"},
+            ],
+            api_key=api_key,
+            response_format={"type": "json_object"},
+            temperature=0.01,
+        )
+        content = response.choices[0].message.content
+        logger.info(f"LLM raw response (first 200 chars): {content[:200]}")
+        extracted = json.loads(content)
+        # Wrap in list so downstream processing (which expects a list) stays unchanged
+        extracted_data = [extracted] if isinstance(extracted, dict) else extracted
+        token_usage = {
+            "prompt_tokens": response.usage.prompt_tokens,
+            "completion_tokens": response.usage.completion_tokens,
+            "total_tokens": response.usage.total_tokens,
+        }
+        logger.info(
+            f"Token usage for {url}: "
+            f"prompt={token_usage['prompt_tokens']}, "
+            f"completion={token_usage['completion_tokens']}, "
+            f"total={token_usage['total_tokens']}"
+        )
+        return extracted_data, token_usage
+
     async def crawl_urls(
         self,
         urls: List[str],
@@ -182,6 +235,15 @@ class KupiCrawler:
             if delay_between and i < len(urls) - 1:
                 logger.info(f"Waiting {self.delay_seconds} seconds before next request...")
                 await asyncio.sleep(self.delay_seconds)
+        
+        if schema_mode == SchemaMode.LLM:
+            total_prompt = sum(r["token_usage"]["prompt_tokens"] for r in results if r.get("token_usage"))
+            total_completion = sum(r["token_usage"]["completion_tokens"] for r in results if r.get("token_usage"))
+            total_tokens = sum(r["token_usage"]["total_tokens"] for r in results if r.get("token_usage"))
+            logger.info(
+                f"Total token usage across {len(urls)} URLs: "
+                f"prompt={total_prompt}, completion={total_completion}, total={total_tokens}"
+            )
         
         return results
     
@@ -212,30 +274,3 @@ class KupiCrawler:
         results = await asyncio.gather(*tasks)
 
         return list(results)
-
-
-def load_urls_from_file(filepath: str) -> List[str]:
-    """
-    Load URLs from a text file (one URL per line).
-    
-    Args:
-        filepath: Path to file containing URLs
-        
-    Returns:
-        List of URLs (comments and empty lines ignored)
-    """
-    urls: list[str] = []
-    
-    if not os.path.exists(filepath):
-        logger.warning(f"URLs file not found: {filepath}")
-        return urls
-    
-    with open(filepath, 'r', encoding='utf-8') as f:
-        for line in f:
-            line = line.strip()
-            # Skip empty lines and comments
-            if line and not line.startswith('#'):
-                urls.append(line)
-    
-    logger.info(f"Loaded {len(urls)} URLs from {filepath}")
-    return urls

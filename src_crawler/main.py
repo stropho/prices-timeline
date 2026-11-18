@@ -14,7 +14,7 @@ src_dir = Path(__file__).parent
 if str(src_dir) not in sys.path:
     sys.path.insert(0, str(src_dir))
 
-from crawlers.kupi_crawler import KupiCrawler, load_urls_from_file, SchemaMode
+from crawlers.kupi_crawler import KupiCrawler, SchemaMode
 from utils.storage import StorageManager
 from utils.date_parser import CzechDateParser
 from utils.text_parser import parse_kupi_offers_from_text
@@ -243,14 +243,11 @@ async def main() -> None:
     storage = StorageManager()
     processor = DataProcessor()
 
-    # Load URLs
-    # Get the directory where this script is located
-    script_dir = Path(__file__).parent
-    urls_file = script_dir / 'config' / 'urls.txt'
-    urls = load_urls_from_file(str(urls_file))
+    # URLs are passed as command-line arguments by scripts/crawl-and-build.sh
+    urls = sys.argv[1:]
 
     if not urls:
-        logger.error(f"No URLs found in {urls_file}. Please add URLs to crawl.")
+        logger.error("No URLs provided. Pass URLs as arguments or add them to src_crawler/config/target.config.yaml.")
         return
 
     logger.info(f"Found {len(urls)} URLs to crawl")

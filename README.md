@@ -28,7 +28,7 @@ A full-stack application for tracking and visualizing promotional product deals.
    ```
 
 2. **Configure URLs:**
-   Edit `src_crawler/config/urls.txt` and add target URLs (one per line)
+   Edit `src_crawler/config/target.config.yaml` and add target URLs as `- url: <url>` entries
 
 3. **Optional: Create .env file:**
    ```bash
@@ -109,7 +109,7 @@ prices-timeline/
 │   ├── crawlers/       # Crawler implementations
 │   ├── extractors/     # Extraction schemas
 │   ├── config/         # Configuration files
-│   │   └── urls.txt   # Target URLs to crawl
+│   │   └── target.config.yaml # Target URLs to crawl
 │   ├── utils/         # Helper utilities
 │   ├── main.py        # Entry point
 │   ├── models.py      # Data models
