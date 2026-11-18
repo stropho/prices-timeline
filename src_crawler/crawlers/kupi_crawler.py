@@ -2,6 +2,7 @@
 import asyncio
 import logging
 import os
+from datetime import datetime
 from typing import Dict, Any, List, Optional, Union
 from crawl4ai import AsyncWebCrawler, BrowserConfig, CrawlerRunConfig, CacheMode
 from extractors.kupi_schema import get_kupi_schema, get_simple_kupi_schema, get_llm_instruction
@@ -19,6 +20,17 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
+
+
+def default_missing_start_dates(extracted_data: List[Any]) -> None:
+    """Set validity_start_date to today when only an end date is known."""
+    today = datetime.now().date().isoformat()
+    for product in extracted_data:
+        if not isinstance(product, dict):
+            continue
+        for offer in product.get("offers") or []:
+            if isinstance(offer, dict) and offer.get("validity_end_date") and not offer.get("validity_start_date"):
+                offer["validity_start_date"] = today
 
 
 class KupiCrawler:
@@ -195,6 +207,7 @@ class KupiCrawler:
         extracted = json.loads(content)
         # Wrap in list so downstream processing (which expects a list) stays unchanged
         extracted_data = [extracted] if isinstance(extracted, dict) else extracted
+        default_missing_start_dates(extracted_data)
         token_usage = {
             "prompt_tokens": response.usage.prompt_tokens,
             "completion_tokens": response.usage.completion_tokens,
