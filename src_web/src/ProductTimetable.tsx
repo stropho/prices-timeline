@@ -106,7 +106,15 @@ function getDateSpansForOffer(
   return spans
 }
 
-export function ProductTimetable({ product }: { product: Product }) {
+export function ProductTimetable({
+  product,
+  compact = false,
+  flushBottom = false,
+}: {
+  product: Product
+  compact?: boolean
+  flushBottom?: boolean
+}) {
   const allOffers = useMemo(() => {
     return product.extracted_data
       .filter((item) => item.offers && item.offers.length > 0)
@@ -139,13 +147,17 @@ export function ProductTimetable({ product }: { product: Product }) {
   const gridTemplateColumns = `120px repeat(${dates.length}, 43px)`
 
   return (
-    <div className="bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-xl p-1 transition-transform hover:translate-y-[-4px] hover:shadow-lg">
+    <div
+      className={`bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-xl p-1 ${
+        flushBottom ? 'pb-0' : ''
+      } transition-transform hover:translate-y-[-4px] hover:shadow-lg`}
+    >
       {allOffers.length === 0 ? (
         <div className="text-gray-600 dark:text-gray-400">No offers available</div>
       ) : (
         <div className="overflow-x-auto">
           <div
-            className="inline-block min-w-full"
+            className="block min-w-full"
             role="table"
             aria-label="Product price timeline"
           >
@@ -155,7 +167,9 @@ export function ProductTimetable({ product }: { product: Product }) {
               style={{ gridTemplateColumns }}
             >
               <div
-                className="sticky left-0 z-20 bg-white dark:bg-gray-900 border-r-2 border-gray-300 dark:border-gray-700 px-4 py-2 text-left relative"
+                className={`sticky left-0 z-20 bg-white dark:bg-gray-900 border-r-2 border-gray-300 dark:border-gray-700 px-4 ${
+                  compact ? 'py-0.5' : 'py-2'
+                } text-left relative`}
                 role="columnheader"
                 style={productBackgroundStyle}
               >
@@ -163,20 +177,18 @@ export function ProductTimetable({ product }: { product: Product }) {
                   <div className="absolute inset-0 bg-white/70 dark:bg-gray-900/70" />
                 )}
                 <div className="flex flex-wrap items-center gap-1 relative z-10">
-                  <h2 className="text-lg font-semibold capitalize text-blue-600 dark:text-blue-400">
-                    {productName}
-                  </h2>
-                  <span className="text-gray-600 dark:text-gray-400 text-sm">
-                    (
-                    <a
-                      href={product.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  <a
+                    href={product.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                  >
+                    <h2
+                      className={`${compact ? 'text-sm' : 'text-lg'} font-semibold capitalize text-blue-600 dark:text-blue-400`}
                     >
-                      →
-                    </a>)
-                  </span>
+                      {productName}
+                    </h2>
+                  </a>
                 </div>
               </div>
               {dateInfos.map((dateInfo, idx) => {
@@ -185,7 +197,9 @@ export function ProductTimetable({ product }: { product: Product }) {
                 return (
                   <div
                     key={idx}
-                    className={`border-l border-r border-gray-300 dark:border-gray-700 px-2 py-2 text-center ${
+                    className={`border-l border-r border-gray-300 dark:border-gray-700 px-2 ${
+                      compact ? 'py-0.5' : 'py-2'
+                    } text-center ${
                       isWeekend 
                         ? 'bg-gray-200/70 dark:bg-gray-700/70' 
                         : 'bg-gray-100/50 dark:bg-gray-800/50'

@@ -23,6 +23,7 @@ export type Product = {
   slug: string
   url: string
   markdown: string
+  commonProductName?: string | null
   extracted_data: ExtractedData[]
 }
 

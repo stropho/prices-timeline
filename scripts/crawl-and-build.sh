@@ -14,10 +14,11 @@ echo "Loading targets from $CONFIG_FILE..."
 echo "=========================================="
 
 # Parse the YAML with pyyaml, run via uv so no project dependency is needed
+# Each entry is emitted as "url|commonProductName" (empty when not set)
 URLS=()
-while read -r url; do
-    URLS+=("$url")
-done < <(uv run --directory "$PROJECT_ROOT/src_crawler" --with pyyaml python -c 'import sys, yaml; [print(item["url"]) for item in yaml.safe_load(open(sys.argv[1])) or []]' "$CONFIG_FILE")
+while read -r target; do
+    URLS+=("$target")
+done < <(uv run --directory "$PROJECT_ROOT/src_crawler" --with pyyaml python -c 'import sys, yaml; [print(item["url"] + "|" + str(item.get("commonProductName") or "")) for item in yaml.safe_load(open(sys.argv[1])) or []]' "$CONFIG_FILE")
 
 if [ ${#URLS[@]} -eq 0 ]; then
     echo "Error: no URLs found in $CONFIG_FILE"
@@ -25,7 +26,7 @@ if [ ${#URLS[@]} -eq 0 ]; then
 fi
 
 BATCH_SIZE=5
-BATCH_WAIT_SECONDS=$((5*60))
+BATCH_WAIT_SECONDS=$((45))
 TOTAL_URLS=${#URLS[@]}
 TOTAL_BATCHES=$(( (TOTAL_URLS + BATCH_SIZE - 1) / BATCH_SIZE ))
 

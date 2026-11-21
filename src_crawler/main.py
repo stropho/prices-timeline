@@ -5,7 +5,7 @@ import os
 import sys
 import re
 from datetime import datetime
-from typing import Dict, Any, Optional
+from typing import Dict, Any, List, Optional
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -243,8 +243,13 @@ async def main() -> None:
     storage = StorageManager()
     processor = DataProcessor()
 
-    # URLs are passed as command-line arguments by scripts/crawl-and-build.sh
-    urls = sys.argv[1:]
+    # Targets are passed as "url|commonProductName" arguments by scripts/crawl-and-build.sh
+    urls: List[str] = []
+    common_product_names: Dict[str, Optional[str]] = {}
+    for target in sys.argv[1:]:
+        url, _, common_product_name = target.partition("|")
+        urls.append(url)
+        common_product_names[url] = common_product_name or None
 
     if not urls:
         logger.error("No URLs provided. Pass URLs as arguments or add them to src_crawler/config/target.config.yaml.")
@@ -268,6 +273,7 @@ async def main() -> None:
         entry = {
             "slug": slug,
             "url": url,
+            "commonProductName": common_product_names.get(url),
             "markdown": markdown_content,
             "extracted_data": result.get("extracted_data")
         }
