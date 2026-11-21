@@ -1,6 +1,7 @@
 {
   "slug": "ananas",
   "url": "https://www.kupi.cz/sleva/ananas",
+  "commonProductName": null,
   "markdown": "[Slevy](https://www.kupi.cz/slevy \"Slevy\")[Ovoce a zelenina](https://www.kupi.cz/slevy/ovoce-a-zelenina \"Ovoce a zelenina\")[Banány a exotické ovoce](https://www.kupi.cz/slevy/banany-a-exoticke-ovoce \"Banány a exotické ovoce\")\nAnanas\n![Ananas](https://img.kupi.cz/kupi/thumbs/ananas-2_170_340.jpg) ilustrační obrázek\n#  Ananas \nv lokalitě [Praha](https://www.kupi.cz/sleva/ananas \"Hlavní město, Česko\")\nPřidat produkt do oblíbených Zapněte si oblíbené a upozorníme vás na novou akci \nBěžná cena: 0 Kč\n## Aktuální akční slevy Ananas 1 ks\n## Doporučené akce\n[ ![Albert leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/bsaArR6LipV3RY3W5L3h7oQfkNC8gt7Z_80.jpg) ](https://www.kupi.cz/letaky/albert \"Albert leták\")\n[ Albert  ](https://www.kupi.cz/letaky/albert \"Albert\")\n[82 nejbližších poboček](https://www.kupi.cz/obchod/albert/albert-praha-1-namesti-republiky-1078-1 \"Albert\")\ncena **39,90 Kč**\n/ 1 ks\n–42 %\n39,90 Kč / 1 ks \nplatí do úterý 24. 11. \n[ V letáku](https://www.kupi.cz/letak/albert-hypermarket-letak-svitavy-u-tri-mostu-3?page=32&map=220455387 \"Prohlédnout leták Albert s akcí Ananas\") [ Přidat](https://www.kupi.cz/sleva/ananas#11441868 \"Přidat Ananas do nákupního seznamu\")\nsweet\n[ ![Tesco leták](https://img.kupi.cz/kupi/thumbs/loga_shopy/tesco-logo_80.png) ](https://www.kupi.cz/letaky/tesco \"Tesco leták\")\n[ Tesco  ](https://www.kupi.cz/letaky/tesco \"Tesco\")\n[28 nejbližších poboček](https://www.kupi.cz/obchod/tesco/tesco-praha-1 \"Tesco\")\ncena **39,90 Kč**\n/ 1 ks\n–42 %\n39,90 Kč / 1 ks \nPlatí pro členy klubu \nplatí do úterý 24. 11. \n[ V letáku](https://www.kupi.cz/letak/tesco-hypermarket-letak-375?page=3&map=220790166 \"Prohlédnout leták Tesco s akcí Ananas\") [ Přidat](https://www.kupi.cz/sleva/ananas#11462679 \"Přidat Ananas do nákupního seznamu\")\nod **39,90 Kč**\n",
   "extracted_data": [
     {
@@ -12,18 +13,18 @@
           "retailer_name": "Albert",
           "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/bsaArR6LipV3RY3W5L3h7oQfkNC8gt7Z_80.jpg",
           "price": "39,90 Kč / 1 ks",
-          "discount": "-42 %",
+          "discount": "–42 %",
           "validity": "platí do úterý 24. 11.",
-          "validity_start_date": "2026-11-18",
+          "validity_start_date": "2026-11-21",
           "validity_end_date": "2026-11-24"
         },
         {
           "retailer_name": "Tesco",
           "retailer_logo": "https://img.kupi.cz/kupi/thumbs/loga_shopy/tesco-logo_80.png",
           "price": "39,90 Kč / 1 ks",
-          "discount": "-42 %",
+          "discount": "–42 %",
           "validity": "platí do úterý 24. 11.",
-          "validity_start_date": "2026-11-18",
+          "validity_start_date": "2026-11-21",
           "validity_end_date": "2026-11-24"
         }
       ]
